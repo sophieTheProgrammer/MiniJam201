@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj1v6pqph244i" path="res://stockimg/frame.png" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://bf26atblryn67" path="res://scripts/frame.gd" id="3_iywne"]
 [ext_resource type="Script" uid="uid://bvyx5ug8n0gsd" path="res://scripts/camera_2d.gd" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b0d7wgdsg7fa3" path="res://scenes/UI.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" path="res://scenes/UI.tscn" id="5_iywne"]
 
 [node name="game" type="Node2D"]
 
@@ -14,7 +14,7 @@ script = ExtResource("1_lnu2h")
 [node name="frame" type="Sprite2D" parent="."]
 z_index = 100
 position = Vector2(-1, 2)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_lbhrr")
 script = ExtResource("3_iywne")
 
@@ -28,4 +28,4 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("4_lbhrr")
 
-[node name="Film Counter" parent="." instance=ExtResource("5_iywne")]
+[node name="UI" parent="." instance=ExtResource("5_iywne")]
