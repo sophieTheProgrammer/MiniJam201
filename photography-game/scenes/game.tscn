@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj1v6pqph244i" path="res://stockimg/frame.png" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://bf26atblryn67" path="res://scripts/frame.gd" id="3_iywne"]
 [ext_resource type="Script" uid="uid://bvyx5ug8n0gsd" path="res://scripts/camera_2d.gd" id="4_lbhrr"]
-[ext_resource type="PackedScene" path="res://scenes/film_counter.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dutxvc34jrex3" path="res://scenes/film_counter.tscn" id="5_iywne"]
 
 [node name="game" type="Node2D"]
 

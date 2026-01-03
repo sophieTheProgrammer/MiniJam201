@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0d7wgdsg7fa3"]
+[gd_scene load_steps=5 format=3 uid="uid://dutxvc34jrex3"]
 
-[ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scenes/film_counter.gd" id="1_ol6fc"]
-[ext_resource type="Texture2D" uid="uid://q7ukt7kvkosa" path="res://stockimg/Film-Strip-A-.png" id="1_sbmog"]
+[ext_resource type="Script" path="res://scenes/film_counter.gd" id="1_ol6fc"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ol6fc"]
-[ext_resource type="Script" uid="uid://nfwqp85cy7xf" path="res://scenes/rich_text_label.gd" id="3_qr5cg"]
+[ext_resource type="Script" path="res://scenes/rich_text_label.gd" id="3_qr5cg"]
+[ext_resource type="Texture2D" uid="uid://be5gwlgkvtsyp" path="res://handdrawn/film.png" id="4_qr5cg"]
 
 [node name="Film Counter" type="Node2D"]
 script = ExtResource("1_ol6fc")
@@ -24,6 +24,6 @@ script = ExtResource("3_qr5cg")
 [node name="Film Image" type="Sprite2D" parent="CanvasLayer"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(136, 68)
-scale = Vector2(0.295652, 0.295652)
-texture = ExtResource("1_sbmog")
+position = Vector2(143.717, 71.7261)
+scale = Vector2(0.19479, 0.201851)
+texture = ExtResource("4_qr5cg")
