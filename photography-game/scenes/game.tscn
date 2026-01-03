@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://0ym5vvrreqfb"]
+[gd_scene load_steps=14 format=3 uid="uid://0ym5vvrreqfb"]
 
 [ext_resource type="Script" uid="uid://b2g6yhlx61guo" path="res://scripts/game_manager.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bj1v6pqph244i" path="res://stockimg/frame.png" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://bf26atblryn67" path="res://scripts/frame.gd" id="3_iywne"]
 [ext_resource type="Script" uid="uid://bvyx5ug8n0gsd" path="res://scripts/camera_2d.gd" id="4_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://da4p01uyesmv3" path="res://resources/Birds Forest Nature Sound.mp3" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://cwajr5uh3w3sf" path="res://resources/Error Notification Sound (1).mp3" id="7_dinhu"]
 [ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scripts/UI.gd" id="7_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://0nfos5qybnfa" path="res://resources/Photo Click Sound Effect.mp3" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="7_vtaks"]
@@ -58,6 +59,9 @@ autoplay = true
 [node name="click" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("7_u5sy4")
 volume_db = 10.306
+
+[node name="error" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("7_dinhu")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("7_kvpfn")

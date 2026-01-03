@@ -1,5 +1,7 @@
 extends Node2D
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
+@onready var error: AudioStreamPlayer2D = $"../audio/error"
+@onready var film_label: RichTextLabel = $"../UI/Film Amount Label"
 
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
@@ -19,9 +21,14 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		if Global.film_amount > 0:
 			click.play()
+		else:
+			error.play()
+			film_label.set("theme_override_colors/default_color", Color(255,0,0))
+			
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
 			Global.moneys += count_items_in_frame()
+			film_label.set("theme_override_colors/default_color", Color(255,255,255))
 
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
