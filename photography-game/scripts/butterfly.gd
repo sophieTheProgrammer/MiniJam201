@@ -24,7 +24,5 @@ func _on_timer_timeout() -> void:
 	rand_y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
 	speed = (randi() % max_speed) + min_speed
 	move_timer.wait_time = (randi() % max_wait_time) + min_wait_time
-	print("timer ended, new timer: ", move_timer.wait_time)
-	print("new x, y: ", rand_x, ", ", rand_y)
 
 	

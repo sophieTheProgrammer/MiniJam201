@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd7cuys4slvak"]
+
+[ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
+[ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ef3hr"]
+[ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="3_vi17a"]
+[ext_resource type="Texture2D" uid="uid://ejjnuql4wkra" path="res://stockimg/film.jpeg" id="4_h5bgf"]
+[ext_resource type="Texture2D" uid="uid://bn4ck41okgb7j" path="res://stockimg/fertilizer.jpeg" id="5_5wf0v"]
+[ext_resource type="Texture2D" uid="uid://c7jjhaqqt0i4v" path="res://stockimg/istockphoto-1482089054-612x612.jpg" id="6_yoata"]
+
+[sub_resource type="Theme" id="Theme_u8xvj"]
+default_font = ExtResource("2_ef3hr")
+default_font_size = 41
+
+[node name="upgrades" type="Node2D"]
+
+[node name="ui layer" type="CanvasLayer" parent="."]
+
+[node name="title" type="Sprite2D" parent="ui layer"]
+position = Vector2(645, 85)
+scale = Vector2(1.41667, 2.75)
+texture = ExtResource("1_js5n2")
+
+[node name="shop" type="RichTextLabel" parent="ui layer/title"]
+offset_left = -117.882
+offset_top = -27.2727
+offset_right = 363.118
+offset_bottom = 33.7273
+theme = SubResource("Theme_u8xvj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="film upgrade" type="Node2D" parent="ui layer"]
+
+[node name="film label" type="Sprite2D" parent="ui layer/film upgrade"]
+position = Vector2(226, 486)
+scale = Vector2(0.534722, 2.1875)
+texture = ExtResource("1_js5n2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/film upgrade/film label"]
+offset_left = -117.882
+offset_top = -27.2727
+offset_right = 363.118
+offset_bottom = 33.7273
+theme = SubResource("Theme_u8xvj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "buy film"
+metadata/_edit_use_anchors_ = true
+
+[node name="film btn" type="Button" parent="ui layer/film upgrade"]
+offset_left = 101.0
+offset_top = 537.0
+offset_right = 325.0
+offset_bottom = 635.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20$"
+icon = ExtResource("3_vi17a")
+flat = true
+icon_alignment = 1
+
+[node name="Filmphoto" type="Sprite2D" parent="ui layer/film upgrade"]
+position = Vector2(228, 306)
+scale = Vector2(0.886228, 1.69868)
+texture = ExtResource("4_h5bgf")
+
+[node name="fertilizer" type="Node2D" parent="ui layer"]
+position = Vector2(712, -2)
+
+[node name="fert label" type="Sprite2D" parent="ui layer/fertilizer"]
+position = Vector2(226, 486)
+scale = Vector2(0.534722, 2.1875)
+texture = ExtResource("1_js5n2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/fertilizer/fert label"]
+anchors_preset = -1
+anchor_left = -0.00108388
+anchor_top = -0.00933397
+anchor_right = 0.630166
+anchor_bottom = 0.021916
+offset_left = -160.311
+offset_top = -28.0442
+offset_right = 320.689
+offset_bottom = 32.9558
+theme = SubResource("Theme_u8xvj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "fertilizer"
+metadata/_edit_use_anchors_ = true
+
+[node name="fert btn" type="Button" parent="ui layer/fertilizer"]
+offset_left = 101.0
+offset_top = 537.0
+offset_right = 325.0
+offset_bottom = 635.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20$"
+icon = ExtResource("3_vi17a")
+flat = true
+icon_alignment = 1
+
+[node name="fertphoto" type="Sprite2D" parent="ui layer/fertilizer"]
+position = Vector2(241.905, 292.387)
+scale = Vector2(1.20069, 1.20642)
+texture = ExtResource("5_5wf0v")
+
+[node name="one with the butterflies upgrade" type="Node2D" parent="ui layer"]
+position = Vector2(356, -1)
+
+[node name="butterlfy label" type="Sprite2D" parent="ui layer/one with the butterflies upgrade"]
+position = Vector2(226, 486)
+scale = Vector2(0.534722, 2.1875)
+texture = ExtResource("1_js5n2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/one with the butterflies upgrade/butterlfy label"]
+anchors_preset = -1
+anchor_left = -0.00108388
+anchor_top = -0.00933397
+anchor_right = 0.630166
+anchor_bottom = 0.021916
+offset_left = -250.48
+offset_top = -27.7013
+offset_right = 230.52
+offset_bottom = 33.2987
+theme = SubResource("Theme_u8xvj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "1 with the butterflies"
+metadata/_edit_use_anchors_ = true
+
+[node name="butterfly btn" type="Button" parent="ui layer/one with the butterflies upgrade"]
+offset_left = 101.0
+offset_top = 537.0
+offset_right = 325.0
+offset_bottom = 635.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20$"
+icon = ExtResource("3_vi17a")
+flat = true
+icon_alignment = 1
+
+[node name="butterflyphoto" type="Sprite2D" parent="ui layer/one with the butterflies upgrade"]
+position = Vector2(240, 296)
+scale = Vector2(0.460936, 0.454081)
+texture = ExtResource("6_yoata")
