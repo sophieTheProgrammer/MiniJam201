@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cie7l2d4v2nwa"]
+[gd_scene load_steps=3 format=3 uid="uid://cie7l2d4v2nwa"]
 
 [ext_resource type="Texture2D" uid="uid://dkd481ddx2ybt" path="res://stockimg/flowerimg.jpeg" id="1_8x8dx"]
+[ext_resource type="Script" uid="uid://blf46t1caxbfl" path="res://scripts/flower.gd" id="1_yoh7s"]
 
 [node name="flower" type="Node2D"]
+script = ExtResource("1_yoh7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.485, 0.485)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_8x8dx")
