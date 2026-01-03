@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd7cuys4slvak"]
+[gd_scene load_steps=9 format=3 uid="uid://dd7cuys4slvak"]
 
+[ext_resource type="Texture2D" uid="uid://cc8gjx2nadhl1" path="res://stockimg/shopbg.jpeg" id="1_ef3hr"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ef3hr"]
 [ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="3_vi17a"]
@@ -13,10 +14,15 @@ default_font_size = 41
 
 [node name="upgrades" type="Node2D"]
 
+[node name="shop" type="Sprite2D" parent="."]
+position = Vector2(576, 325)
+scale = Vector2(5.28927, 4.18394)
+texture = ExtResource("1_ef3hr")
+
 [node name="ui layer" type="CanvasLayer" parent="."]
 
 [node name="title" type="Sprite2D" parent="ui layer"]
-position = Vector2(645, 85)
+position = Vector2(583, 86)
 scale = Vector2(1.41667, 2.75)
 texture = ExtResource("1_js5n2")
 
@@ -44,10 +50,10 @@ anchor_left = 0.000322978
 anchor_top = 0.0683446
 anchor_right = -0.143427
 anchor_bottom = 0.0370951
-offset_left = -203.999
-offset_top = -21.387
-offset_right = 281.001
-offset_bottom = 178.613
+offset_left = -129.194
+offset_top = -20.4728
+offset_right = 355.806
+offset_bottom = 179.527
 scale = Vector2(1.88, 0.696)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
