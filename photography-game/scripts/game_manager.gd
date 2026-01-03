@@ -18,6 +18,8 @@ func _ready() -> void:
 	spawn_butterfly(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
+	if Global.moneys < Global.film_cost and Global.film_amount <= 0:
+		get_tree().change_scene_to_packed(game_over)
 	if Input.is_action_just_released("click"):
 		if Global.film_amount > 0:
 			click.play()
@@ -46,6 +48,7 @@ func count_items_in_frame():
 	for item in frame_items:
 		var tex = item.sprite
 		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
+		print(itemRect)
 		if mouseRect.intersects(itemRect):
 			if item.type == Global.FrameTypes.BUTTERFLY:
 				count += 2
