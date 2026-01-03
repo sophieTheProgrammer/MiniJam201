@@ -16,6 +16,9 @@ func _ready() -> void:
 	move_timer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if speed != 0:
+		look_at(Vector2(rand_x, rand_y))
+		self.rotate(PI/2)
 	position = position.move_toward(Vector2(rand_x, rand_y), speed * 100 * delta)
 	speed = move_toward(float(speed), 0.0, float(.01))
 
