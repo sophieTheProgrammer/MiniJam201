@@ -9,7 +9,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		print(count_items_in_frame())
+
 func count_items_in_frame():
+	#makes 2 rects of the frame box and the frame item and then sees if they intersect
+	#if they intersect then count is updated then it is returned at the end
 	var count = 0
 	var mousePos = get_global_mouse_position()
 	var mouseRect = Rect2(mousePos.x, mousePos.y, 2752*.05, 2064*.05)
