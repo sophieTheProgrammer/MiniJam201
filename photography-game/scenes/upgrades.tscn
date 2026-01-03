@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd7cuys4slvak"]
+[gd_scene load_steps=15 format=3 uid="uid://dd7cuys4slvak"]
 
 [ext_resource type="Texture2D" uid="uid://cc8gjx2nadhl1" path="res://stockimg/shopbg.jpeg" id="1_ef3hr"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scripts/UI.gd" id="9_yoata"]
 [ext_resource type="Texture2D" uid="uid://q7ukt7kvkosa" path="res://stockimg/Film-Strip-A-.png" id="10_3vdl0"]
 [ext_resource type="Texture2D" uid="uid://nihdf52u0i5u" path="res://stockimg/7630510.png" id="11_deu2k"]
+[ext_resource type="AudioStream" uid="uid://cgvmaf1438tl" path="res://resources/buy_1.mp3" id="12_3vdl0"]
 
 [sub_resource type="Theme" id="Theme_u8xvj"]
 default_font = ExtResource("2_ef3hr")
@@ -224,6 +225,9 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 script = SubResource("GDScript_mp7ln")
+
+[node name="Buy Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_3vdl0")
 
 [connection signal="pressed" from="ui layer/film upgrade/film btn" to="ui layer/shop" method="_on_film_btn_pressed"]
 [connection signal="pressed" from="ui layer/fertilizer/fert btn" to="ui layer/shop" method="_on_fert_btn_pressed"]
