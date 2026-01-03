@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi7svjqntds2b"]
+[gd_scene load_steps=15 format=3 uid="uid://dd7cuys4slvak"]
 
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ef3hr"]
@@ -81,7 +81,9 @@ offset_left = 64.0
 offset_top = 544.0
 offset_right = 288.0
 offset_bottom = 642.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yoata")
 text = "20$"
@@ -173,7 +175,9 @@ offset_left = 47.0
 offset_top = 545.0
 offset_right = 271.0
 offset_bottom = 643.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_keijs")
 text = "20$"
