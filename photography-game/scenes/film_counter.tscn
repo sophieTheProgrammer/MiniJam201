@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0dk23hwdnwya"]
+[gd_scene load_steps=5 format=3 uid="uid://7miayso2h0hf"]
 
 [ext_resource type="Script" path="res://scenes/film_counter.gd" id="1_ol6fc"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ol6fc"]
 [ext_resource type="Script" path="res://scenes/rich_text_label.gd" id="3_qr5cg"]
-[ext_resource type="Texture2D" uid="uid://be5gwlgkvtsyp" path="res://handdrawn/film.png" id="4_qr5cg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ol6fc"]
+load_path = "res://.godot/imported/filmicon.png-661323155cbb0ac988b0c69c18d73d03.ctex"
 
 [node name="Film Counter" type="Node2D"]
 script = ExtResource("1_ol6fc")
@@ -24,6 +26,6 @@ script = ExtResource("3_qr5cg")
 [node name="Film Image" type="Sprite2D" parent="CanvasLayer"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(134, 72.5)
+position = Vector2(120, 72)
 scale = Vector2(0.239676, 0.244703)
-texture = ExtResource("4_qr5cg")
+texture = SubResource("CompressedTexture2D_ol6fc")

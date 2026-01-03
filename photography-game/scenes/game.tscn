@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scripts/UI.gd" id="7_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://0nfos5qybnfa" path="res://resources/Photo Click Sound Effect.mp3" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="7_vtaks"]
-[ext_resource type="Texture2D" uid="uid://q7ukt7kvkosa" path="res://stockimg/Film-Strip-A-.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://nihdf52u0i5u" path="res://stockimg/7630510.png" id="9_dinhu"]
+[ext_resource type="Texture2D" uid="uid://dmunrrl4wk3bj" path="res://handdrawn/shop icons/film.png" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="10_kvuet"]
 
 [sub_resource type="GDScript" id="GDScript_trtic"]
@@ -75,9 +75,9 @@ vertical_alignment = 1
 [node name="Film Image" type="Sprite2D" parent="UI"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(136, 68)
-scale = Vector2(0.295652, 0.295652)
-texture = ExtResource("8_kvpfn")
+position = Vector2(124.283, 74.2739)
+scale = Vector2(0.22232, 0.239987)
+texture = ExtResource("9_kvpfn")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
 position = Vector2(1062, 59)
@@ -85,7 +85,7 @@ scale = Vector2(0.357422, 0.357422)
 texture = ExtResource("9_dinhu")
 
 [node name="Moneys Label" type="RichTextLabel" parent="UI"]
-offset_left = 16.0
+offset_left = 889.0
 offset_top = -8.0
 offset_right = 976.0
 offset_bottom = 150.0
