@@ -1,7 +1,7 @@
-extends Node2D
+extends CanvasLayer
 
-@onready var Film_Amount_Label: RichTextLabel = $"CanvasLayer/Film Amount Label"
-@onready var Moneys_Label: RichTextLabel = $"CanvasLayer/Moneys Label"
+@onready var Film_Amount_Label: RichTextLabel = $"Film Amount Label"
+@onready var Moneys_Label: RichTextLabel = $"Moneys Label"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
