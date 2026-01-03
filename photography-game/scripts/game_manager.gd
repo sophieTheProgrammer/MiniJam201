@@ -6,6 +6,7 @@ extends Node2D
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
 var upgrades_scene:PackedScene = load("res://scenes/upgrades.tscn")
+var game_over:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
 var frame_items = []
@@ -17,7 +18,6 @@ func _ready() -> void:
 	spawn_butterfly(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
-
 	if Input.is_action_just_released("click"):
 		if Global.film_amount > 0:
 			click.play()
@@ -42,8 +42,11 @@ func count_items_in_frame():
 		if mouseRect.intersects(itemRect):
 			if item.type == Global.FrameTypes.BUTTERFLY:
 				count += 2
+				print("ITZ A BEAUTIFUL BUTTERFLY")
 			elif item.type == Global.FrameTypes.FLOWER:
 				count += 1
+				print("ITS A FLOWEY")
+				
 	return count
 
 # spawns flowers in random location in certain range from origin
