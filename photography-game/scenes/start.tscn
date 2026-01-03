@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmdlgj5kypsxa"]
+
+[ext_resource type="Script" uid="uid://cfyax4gnrvhgm" path="res://scenes/start.gd" id="1_bodal"]
+[ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="1_u80x2"]
+[ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="2_bodal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bodal"]
+
+[node name="start" type="Node2D"]
+script = ExtResource("1_bodal")
+
+[node name="start" type="Button" parent="."]
+offset_left = 388.0
+offset_top = 291.0
+offset_right = 876.0
+offset_bottom = 383.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bodal")
+text = "start"
+icon = ExtResource("1_u80x2")
+flat = true
+icon_alignment = 1
+
+[node name="title" type="Node2D" parent="."]
+
+[node name="titel" type="Sprite2D" parent="title"]
+position = Vector2(671.75, 202.75)
+scale = Vector2(1.34479, 3.10937)
+texture = ExtResource("2_bodal")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="title"]
+offset_left = 363.5
+offset_top = 169.75
+offset_right = 1038.5
+offset_bottom = 335.75
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "broke photographer"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
