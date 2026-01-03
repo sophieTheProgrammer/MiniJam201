@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0dk23hwdnwya"]
+
+[ext_resource type="Script" path="res://scenes/film_counter.gd" id="1_ol6fc"]
+[ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ol6fc"]
+[ext_resource type="Script" path="res://scenes/rich_text_label.gd" id="3_qr5cg"]
+[ext_resource type="Texture2D" uid="uid://be5gwlgkvtsyp" path="res://handdrawn/film.png" id="4_qr5cg"]
+
+[node name="Film Counter" type="Node2D"]
+script = ExtResource("1_ol6fc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Film Amount Label" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 272.0
+offset_top = -11.0
+offset_right = 428.0
+offset_bottom = 147.0
+theme_override_fonts/normal_font = ExtResource("2_ol6fc")
+theme_override_font_sizes/normal_font_size = 100
+text = "1"
+vertical_alignment = 1
+script = ExtResource("3_qr5cg")
+
+[node name="Film Image" type="Sprite2D" parent="CanvasLayer"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(134, 72.5)
+scale = Vector2(0.239676, 0.244703)
+texture = ExtResource("4_qr5cg")
