@@ -18,11 +18,9 @@ func count_items_in_frame():
 		if mouseRect.intersects(itemRect):
 			count+=1
 	return count
-		print("Left mouse button released.")
 
 # spawns flowers in random location in certain range from origin
 func spawn_flower(number_of_flowers):
-	
 	# set variables
 	var row = 5
 	var flowers_array = []
