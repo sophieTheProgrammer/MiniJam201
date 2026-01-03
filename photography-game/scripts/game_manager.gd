@@ -7,8 +7,6 @@ const butterflyFab = preload("res://scenes/butterfly.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
 
-
-
 func _ready() -> void:
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
@@ -19,6 +17,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
+			Global.moneys += count_items_in_frame()
 			print(count_items_in_frame())
 
 func count_items_in_frame():
@@ -33,7 +32,10 @@ func count_items_in_frame():
 		var tex = item.sprite
 		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
 		if mouseRect.intersects(itemRect):
-			count+=1
+			if item.type == Global.FrameTypes.BUTTERFLY:
+				count += 2
+			elif item.type == Global.FrameTypes.FLOWER:
+				count += 1
 	return count
 
 # spawns flowers in random location in certain range from origin

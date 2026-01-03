@@ -40,8 +40,8 @@ texture = ExtResource("1_js5n2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui layer/film upgrade/film label"]
 anchors_preset = -1
-anchor_left = 0.000322978
-anchor_top = 0.0683446
+anchor_left = -0.143427
+anchor_top = 0.0370951
 anchor_right = -0.143427
 anchor_bottom = 0.0370951
 offset_left = -203.999
