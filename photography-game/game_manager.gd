@@ -2,9 +2,18 @@ extends Node
 
 const flowerFab = preload("res://flower.tscn")
 # Called when the node enters the scene tree for the first time.
-var row = 5
 func _ready() -> void:
-	for i in range(3):
+	spawn_flower()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func spawn_flower():
+	var row = 5
+	var flowers_array = []
+	
+	for i in range(10):
 		var curr = flowerFab.instantiate()
 		curr.name = "flower"
 		curr.position.x = row
