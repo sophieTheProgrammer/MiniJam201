@@ -1,7 +1,6 @@
 extends Node2D
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@onready var film_label: RichTextLabel = $"../UI/Film Amount Label"
 
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
@@ -18,10 +17,7 @@ func _ready() -> void:
 	spawn_butterfly(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
-	if Global.film_amount == 0:
-		film_label.set("theme_override_colors/default_color", Color(255,0,0))
-	else:
-		film_label.set("theme_override_colors/default_color", Color(255,255,255))
+
 	if Input.is_action_just_released("click"):
 		if Global.film_amount > 0:
 			click.play()

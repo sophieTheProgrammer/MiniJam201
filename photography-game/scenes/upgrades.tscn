@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi7svjqntds2b"]
+[gd_scene load_steps=15 format=3 uid="uid://bi7svjqntds2b"]
 
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ef3hr"]
@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dmunrrl4wk3bj" path="res://handdrawn/shop icons/film.png" id="5_5wf0v"]
 [ext_resource type="Texture2D" uid="uid://mwpdey2srpsa" path="res://handdrawn/shop icons/fertilizer.PNG" id="6_3vdl0"]
 [ext_resource type="Texture2D" uid="uid://b8panb8jhbicp" path="res://handdrawn/butterfly/Untitled_Artwork-1.png" id="7_deu2k"]
-[ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scripts/UI.gd" id="9_yoata"]
-[ext_resource type="Texture2D" uid="uid://nihdf52u0i5u" path="res://stockimg/7630510.png" id="11_deu2k"]
+[ext_resource type="PackedScene" uid="uid://dbodo04ow2lyw" path="res://scenes/stats.tscn" id="8_h5bgf"]
 [ext_resource type="AudioStream" uid="uid://cgvmaf1438tl" path="res://resources/buy_1.mp3" id="12_3vdl0"]
 
 [sub_resource type="Theme" id="Theme_u8xvj"]
@@ -23,23 +22,11 @@ default_font_size = 41
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deu2k"]
 
-[sub_resource type="GDScript" id="GDScript_mp7ln"]
-script/source = "extends RichTextLabel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="upgrades" type="Node2D"]
 
 [node name="ui layer" type="CanvasLayer" parent="."]
+
+[node name="stats" parent="ui layer" instance=ExtResource("8_h5bgf")]
 
 [node name="shop" type="Sprite2D" parent="ui layer"]
 position = Vector2(576, 325)
@@ -200,66 +187,37 @@ position = Vector2(164, 261)
 scale = Vector2(0.136832, 0.134797)
 texture = ExtResource("7_deu2k")
 
-[node name="exit shop" type="Button" parent="ui layer"]
-offset_left = 1009.0
-offset_top = 527.0
-offset_right = 1233.0
-offset_bottom = 625.0
-rotation = -1.5708
+[node name="Node" type="Node" parent="ui layer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ui layer/Node"]
+position = Vector2(1052.5, 601)
+scale = Vector2(0.75, 1.02381)
+texture = ExtResource("3_vi17a")
+
+[node name="exit shop" type="Button" parent="ui layer/Node"]
+anchors_preset = -1
+anchor_left = -0.0173611
+anchor_top = -0.00925926
+anchor_right = -0.0173611
+anchor_bottom = -0.00925926
+offset_left = 951.0
+offset_top = 553.0
+offset_right = 1175.0
+offset_bottom = 651.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 theme_override_styles/focus = SubResource("StyleBoxEmpty_deu2k")
-text = "Exit Shop"
-icon = ExtResource("3_vi17a")
+text = "Exit"
 flat = true
 icon_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("9_yoata")
-
-[node name="Film Amount Label" type="RichTextLabel" parent="UI"]
-offset_left = 264.0
-offset_top = -8.0
-offset_right = 1132.0
-offset_bottom = 150.0
-theme_override_fonts/normal_font = ExtResource("2_ef3hr")
-theme_override_font_sizes/normal_font_size = 100
-text = "1"
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Film Image" type="Sprite2D" parent="UI"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(124.321, 74)
-scale = Vector2(0.214284, 0.241816)
-texture = ExtResource("5_5wf0v")
-
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(1062, 60)
-scale = Vector2(0.357422, 0.357422)
-texture = ExtResource("11_deu2k")
-
-[node name="Moneys Label" type="RichTextLabel" parent="UI"]
-anchors_preset = -1
-anchor_left = -0.0217014
-offset_left = 16.0
-offset_top = -8.0
-offset_right = 976.0
-offset_bottom = 150.0
-theme_override_fonts/normal_font = ExtResource("2_ef3hr")
-theme_override_font_sizes/normal_font_size = 100
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-script = SubResource("GDScript_mp7ln")
 metadata/_edit_use_anchors_ = true
 
 [node name="Buy Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_3vdl0")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="pressed" from="ui layer/film upgrade/film btn" to="ui layer/shop" method="_on_film_btn_pressed"]
 [connection signal="pressed" from="ui layer/fertilizer/fert btn" to="ui layer/shop" method="_on_fert_btn_pressed"]
 [connection signal="pressed" from="ui layer/one with the butterflies upgrade/butterfly btn" to="ui layer/shop" method="_on_butterfly_btn_pressed"]
-[connection signal="pressed" from="ui layer/exit shop" to="ui layer/shop" method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="ui layer/Node/exit shop" to="ui layer/shop" method="_on_exit_shop_pressed"]

@@ -4,6 +4,8 @@ var game_scene:PackedScene = load("res://scenes/game.tscn")
 @onready var bfly_btn: Button = $"../one with the butterflies upgrade/butterfly btn"
 @onready var fert_btn: Button = $"../fertilizer/fert btn"
 @onready var buy_sound: AudioStreamPlayer2D = $"../../Buy Sound"
+@onready var exit_shop: Button = $"ui layer/Node/exit shop"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -1,7 +1,5 @@
-extends CanvasLayer
+extends RichTextLabel
 
-@onready var Film_Amount_Label: RichTextLabel = $"Film Amount Label"
-@onready var Moneys_Label: RichTextLabel = $"Moneys Label"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,5 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Film_Amount_Label.text = str(Global.film_amount)
-	Moneys_Label.text = str(Global.moneys)
+	text = str(Global.film_amount)
+	if Global.film_amount == 0:
+		set("theme_override_colors/default_color", Color(255,0,0))
+	else:
+		set("theme_override_colors/default_color", Color(255,255,255))
