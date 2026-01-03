@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="photography game"
-run/main_scene="uid://cmdlgj5kypsxa"
+run/main_scene="uid://0ym5vvrreqfb"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -64,4 +64,4 @@ down_arrow={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.466667, 0.854902, 0.619608, 1)
+environment/defaults/default_clear_color=Color(0.456079, 0.874039, 0.612734, 1)
