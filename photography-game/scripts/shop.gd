@@ -19,11 +19,12 @@ func _process(delta: float) -> void:
 
 func _on_film_btn_pressed() -> void:
 	if (Global.moneys >= Global.film_cost):
-		Global.film_amount += 1
+		Global.film_amount += 2
 		Global.moneys -= Global.film_cost
-		Global.film_cost *= 1.211
-		Global.bfly_cost *= 0.7
-		Global.fert_cost *= 0.9
+		if (Global.film_cost <= 10):
+			Global.film_cost *= 1.211
+			Global.bfly_cost *= 0.7
+			Global.fert_cost *= 0.9
 		buy_sound.play()
 
 func _on_butterfly_btn_pressed() -> void:
