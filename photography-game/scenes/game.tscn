@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2g6yhlx61guo" path="res://scripts/game_manager.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bj1v6pqph244i" path="res://stockimg/frame.png" id="2_lbhrr"]
 [ext_resource type="Script" uid="uid://bf26atblryn67" path="res://scripts/frame.gd" id="3_iywne"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://bvyx5ug8n0gsd" path="res://scenes/camera_2d.gd" id="4_lbhrr"]
 
 [node name="game" type="Node2D"]
 

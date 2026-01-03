@@ -3,13 +3,19 @@ extends Node2D
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
 
+var x_viewport_length
+var y_viewport_length
 
-# Called when the node enters the scene tree for the first time.
 @onready var frame: Sprite2D = $"../frame"
+@onready var camera_2d: Camera2D = $"../Camera2D"
+
 func _ready() -> void:
+	x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
+	y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
+	print(x_viewport_length)
 	spawn_flower(10)
 	spawn_butterfly(3)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		print(count_items_in_frame())
@@ -38,8 +44,9 @@ func spawn_flower(number_of_flowers):
 		var curr = flowerFab.instantiate()
 		curr.name = "flower"
 		
-		curr.position.x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
-		curr.position.y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
+		print(x_viewport_length)
+		curr.position.x = (randi() % x_viewport_length) - x_viewport_length/2
+		curr.position.y = (randi() % y_viewport_length) - y_viewport_length/2
 		self.add_child(curr)
 		Global.frame_items.append(curr)
 	print(Global.frame_items)
@@ -53,7 +60,8 @@ func spawn_butterfly(number_of_butterflies):
 	for i in range(number_of_butterflies):
 		var curr = butterflyFab.instantiate()
 		curr.name = "butterfly"
-		curr.position.x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
-		curr.position.y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
+		
+		curr.position.x = (randi() % x_viewport_length) - x_viewport_length/2
+		curr.position.y = (randi() % y_viewport_length) - y_viewport_length/2
 		self.add_child(curr)
 		Global.frame_items.append(curr)
