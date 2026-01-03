@@ -25,7 +25,7 @@ texture = ExtResource("1_ef3hr")
 script = ExtResource("2_vi17a")
 
 [node name="title" type="Sprite2D" parent="ui layer"]
-position = Vector2(583, 86)
+position = Vector2(583, 73)
 scale = Vector2(1.41667, 2.75)
 texture = ExtResource("1_js5n2")
 
@@ -83,7 +83,7 @@ texture = ExtResource("4_h5bgf")
 position = Vector2(712, -2)
 
 [node name="fert label" type="Sprite2D" parent="ui layer/fertilizer"]
-position = Vector2(226, 486)
+position = Vector2(197, 495)
 scale = Vector2(0.534722, 2.1875)
 texture = ExtResource("1_js5n2")
 
@@ -104,10 +104,10 @@ text = "fertilizer"
 metadata/_edit_use_anchors_ = true
 
 [node name="fert btn" type="Button" parent="ui layer/fertilizer"]
-offset_left = 101.0
-offset_top = 537.0
-offset_right = 325.0
-offset_bottom = 635.0
+offset_left = 82.0
+offset_top = 548.0
+offset_right = 306.0
+offset_bottom = 646.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "20$"
 icon = ExtResource("3_vi17a")
@@ -129,10 +129,10 @@ texture = ExtResource("1_js5n2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui layer/one with the butterflies upgrade/butterlfy label"]
 anchors_preset = -1
-anchor_left = -0.00113735
-anchor_top = 0.0482208
-anchor_right = 0.125946
-anchor_bottom = 1.82947
+anchor_left = -0.00107085
+anchor_top = 0.046425
+anchor_right = 0.126012
+anchor_bottom = 1.82767
 offset_left = -328.486
 offset_top = -20.4856
 offset_right = 152.514
@@ -161,8 +161,20 @@ position = Vector2(240, 296)
 scale = Vector2(0.460936, 0.454081)
 texture = ExtResource("6_yoata")
 
+[node name="exit shop" type="Button" parent="ui layer"]
+offset_left = 999.0
+offset_top = 590.0
+offset_right = 1223.0
+offset_bottom = 688.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Exit Shop"
+icon = ExtResource("3_vi17a")
+flat = true
+icon_alignment = 1
+
 [node name="Film Counter" parent="." instance=ExtResource("3_h5bgf")]
 
 [connection signal="pressed" from="ui layer/film upgrade/film btn" to="ui layer/shop" method="_on_film_btn_pressed"]
 [connection signal="pressed" from="ui layer/fertilizer/fert btn" to="ui layer/shop" method="_on_fert_btn_pressed"]
 [connection signal="pressed" from="ui layer/one with the butterflies upgrade/butterfly btn" to="ui layer/shop" method="_on_butterfly_btn_pressed"]
+[connection signal="pressed" from="ui layer/exit shop" to="ui layer/shop" method="_on_exit_shop_pressed"]

@@ -4,7 +4,6 @@ enum FrameTypes{
 	FLOWER
 }
 
-var frame_items = []
 var x_viewport_length
 var y_viewport_length
 var film_amount = 1
