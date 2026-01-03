@@ -17,7 +17,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
-		print(count_items_in_frame())
+		if (Global.film_amount >= 1):
+			Global.film_amount -= 1
+			print(count_items_in_frame())
 
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
