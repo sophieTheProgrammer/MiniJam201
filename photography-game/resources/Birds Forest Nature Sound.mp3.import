@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da4p01uyesmv3"
+path="res://.godot/imported/Birds Forest Nature Sound.mp3-fd5e70b34afa18b4ea416d52ad7b339e.mp3str"
+
+[deps]
+
+source_file="res://resources/Birds Forest Nature Sound.mp3"
+dest_files=["res://.godot/imported/Birds Forest Nature Sound.mp3-fd5e70b34afa18b4ea416d52ad7b339e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

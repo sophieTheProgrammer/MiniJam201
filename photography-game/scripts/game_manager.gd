@@ -1,6 +1,7 @@
 extends Node2D
+@onready var click: AudioStreamPlayer2D = $"../audio/click"
 
-
+@onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
 var upgrades_scene:PackedScene = load("res://scenes/upgrades.tscn")
@@ -16,12 +17,12 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
+		if Global.film_amount > 0:
+			click.play()
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
 			Global.moneys += count_items_in_frame()
-			if (Global.film_amount == 0):
-				get_tree().change_scene_to_packed(upgrades_scene)
-			print(count_items_in_frame())
+				
 
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
@@ -64,8 +65,11 @@ func spawn_butterfly(number_of_butterflies):
 	for i in range(number_of_butterflies):
 		var curr = butterflyFab.instantiate()
 		curr.name = "butterfly"
-		
 		curr.position.x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
 		curr.position.y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
 		self.add_child(curr)
 		frame_items.append(curr)
+
+
+func _on_shop_btn_pressed() -> void:
+	get_tree().change_scene_to_packed(upgrades_scene)
