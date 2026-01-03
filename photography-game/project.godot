@@ -23,6 +23,10 @@ Global="*res://scripts/global.gd"
 
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom_font="uid://bnq8xomohvdhy"
+
 [input]
 
 click={

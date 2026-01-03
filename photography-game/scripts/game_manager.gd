@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
 
@@ -11,7 +12,6 @@ const butterflyFab = preload("res://scenes/butterfly.tscn")
 func _ready() -> void:
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
-	print(Global.x_viewport_length)
 	spawn_flower(30)
 	spawn_butterfly(10)
 
@@ -43,7 +43,6 @@ func spawn_flower(number_of_flowers):
 		var curr = flowerFab.instantiate()
 		curr.name = "flower"
 		
-		print(Global.x_viewport_length)
 		curr.position.x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
 		curr.position.y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
 		self.add_child(curr)
