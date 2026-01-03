@@ -1,7 +1,8 @@
 extends Node
 
 var frame_items = []
-
+var x_viewport_length
+var y_viewport_length
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
