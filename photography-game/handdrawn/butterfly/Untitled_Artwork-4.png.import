@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5y4ica1507kg"
-path="res://.godot/imported/butterfly3.png-d5eba680b46796c9d08dd14abcc8e01a.ctex"
+uid="uid://bfrw86hqlxc6e"
+path="res://.godot/imported/Untitled_Artwork-4.png-028fb462e60346bc52ac6302b0ab01d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://handdrawn/butterfly/butterfly3.png"
-dest_files=["res://.godot/imported/butterfly3.png-d5eba680b46796c9d08dd14abcc8e01a.ctex"]
+source_file="res://handdrawn/butterfly/Untitled_Artwork-4.png"
+dest_files=["res://.godot/imported/Untitled_Artwork-4.png-028fb462e60346bc52ac6302b0ab01d8.ctex"]
 
 [params]
 
