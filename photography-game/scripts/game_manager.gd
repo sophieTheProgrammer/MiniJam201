@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const flowerFab = preload("res://scenes/flower.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -19,4 +19,13 @@ func spawn_flower():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
-		print("Left mouse button released.")
+		print(count_items_in_frame())
+func count_items_in_frame():
+	var count = 0
+	var mousePos = get_global_mouse_position()
+	var mouseRect = Rect2(mousePos.x, mousePos.y, 2752*.05, 2064*.05)
+	for item in Global.frame_items:
+		var itemRect = Rect2(item.position.x, item.position.y, 592, 404)
+		if mouseRect.intersects(itemRect):
+			count+=1
+	return count
