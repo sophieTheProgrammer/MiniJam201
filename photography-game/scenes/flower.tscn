@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://cie7l2d4v2nwa"]
 
-[ext_resource type="Texture2D" uid="uid://dkd481ddx2ybt" path="res://stockimg/flowerimg.jpeg" id="1_p547k"]
+[ext_resource type="Texture2D" uid="uid://dkd481ddx2ybt" path="res://stockimg/flowerimg.jpeg" id="1_8x8dx"]
 
 [node name="flower" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -3)
+
+position = Vector2(0, 0)
 scale = Vector2(0.199324, 0.256188)
 texture = ExtResource("1_p547k")
