@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 	speed = move_toward(float(speed), 0.0, float(.01))
 
 func _on_timer_timeout() -> void:
-	rand_x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
-	rand_y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
+	rand_x = (randi() % x_viewport_length) - x_viewport_length/2
+	rand_y = (randi() % y_viewport_length) - y_viewport_length/2
 	speed = (randi() % max_speed) + min_speed
 	move_timer.wait_time = (randi() % max_wait_time) + min_wait_time
 	print("timer ended, new timer: ", move_timer.wait_time)

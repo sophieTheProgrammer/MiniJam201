@@ -12,6 +12,6 @@ scale = Vector2(0.20915, 0.20915)
 texture = ExtResource("1_4ki4n")
 
 [node name="MoveTimer" type="Timer" parent="."]
-wait_time = 0.001
+autostart = true
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_timer_timeout"]
