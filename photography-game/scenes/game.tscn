@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0ym5vvrreqfb"]
+[gd_scene load_steps=12 format=3 uid="uid://0ym5vvrreqfb"]
 
 [ext_resource type="Script" uid="uid://b2g6yhlx61guo" path="res://scripts/game_manager.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bj1v6pqph244i" path="res://stockimg/frame.png" id="2_lbhrr"]
@@ -6,25 +6,13 @@
 [ext_resource type="Script" uid="uid://bvyx5ug8n0gsd" path="res://scripts/camera_2d.gd" id="4_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://da4p01uyesmv3" path="res://resources/Birds Forest Nature Sound.mp3" id="6_p57ef"]
 [ext_resource type="AudioStream" uid="uid://cwajr5uh3w3sf" path="res://resources/Error Notification Sound (1).mp3" id="7_dinhu"]
-[ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scripts/UI.gd" id="7_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://0nfos5qybnfa" path="res://resources/Photo Click Sound Effect.mp3" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="7_vtaks"]
-[ext_resource type="Texture2D" uid="uid://nihdf52u0i5u" path="res://stockimg/7630510.png" id="9_dinhu"]
-[ext_resource type="Texture2D" uid="uid://dmunrrl4wk3bj" path="res://handdrawn/shop icons/film.png" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="10_kvuet"]
+[ext_resource type="PackedScene" uid="uid://dbodo04ow2lyw" path="res://scenes/stats.tscn" id="11_kvpfn"]
 
-[sub_resource type="GDScript" id="GDScript_trtic"]
-script/source = "extends RichTextLabel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+[sub_resource type="GDScript" id="GDScript_vtaks"]
+script/source = "extends CanvasLayer
 "
 
 [node name="game" type="Node2D"]
@@ -64,41 +52,7 @@ volume_db = 10.306
 stream = ExtResource("7_dinhu")
 
 [node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("7_kvpfn")
-
-[node name="Film Amount Label" type="RichTextLabel" parent="UI"]
-offset_left = 264.0
-offset_top = -8.0
-offset_right = 1132.0
-offset_bottom = 150.0
-theme_override_fonts/normal_font = ExtResource("7_vtaks")
-theme_override_font_sizes/normal_font_size = 100
-text = "1"
-vertical_alignment = 1
-
-[node name="Film Image" type="Sprite2D" parent="UI"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(124.283, 74.2739)
-scale = Vector2(0.22232, 0.239987)
-texture = ExtResource("9_kvpfn")
-
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(1062, 59)
-scale = Vector2(0.357422, 0.357422)
-texture = ExtResource("9_dinhu")
-
-[node name="Moneys Label" type="RichTextLabel" parent="UI"]
-offset_left = 128.0
-offset_top = -8.0
-offset_right = 976.0
-offset_bottom = 150.0
-theme_override_fonts/normal_font = ExtResource("7_vtaks")
-theme_override_font_sizes/normal_font_size = 100
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-script = SubResource("GDScript_trtic")
+script = SubResource("GDScript_vtaks")
 
 [node name="shop btn" type="Button" parent="UI"]
 offset_left = 919.0
@@ -112,5 +66,7 @@ text = "shop"
 icon = ExtResource("10_kvuet")
 flat = true
 icon_alignment = 1
+
+[node name="stats" parent="UI" instance=ExtResource("11_kvpfn")]
 
 [connection signal="pressed" from="UI/shop btn" to="Game Manager" method="_on_shop_btn_pressed"]

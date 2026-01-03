@@ -4,6 +4,8 @@ var game_scene:PackedScene = load("res://scenes/game.tscn")
 @onready var bfly_btn: Button = $"../one with the butterflies upgrade/butterfly btn"
 @onready var fert_btn: Button = $"../fertilizer/fert btn"
 @onready var buy_sound: AudioStreamPlayer2D = $"../../Buy Sound"
+@onready var exit_shop: Button = $"ui layer/Node/exit shop"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,7 +23,7 @@ func _on_film_btn_pressed() -> void:
 	if (Global.moneys >= Global.film_cost):
 		Global.film_amount += 2
 		Global.moneys -= Global.film_cost
-		Global.film_cost *= 1.211
+		Global.film_cost *= 1.266111
 		buy_sound.play()
 
 func _on_butterfly_btn_pressed() -> void:
@@ -29,7 +31,7 @@ func _on_butterfly_btn_pressed() -> void:
 		Global.butterfly_spawn_count = int(Global.butterfly_spawn_count*1.25)
 		print("butterfly spawning ", str(Global.butterfly_spawn_count))
 		Global.moneys -= Global.bfly_cost
-		Global.bfly_cost *= 3.111
+		Global.bfly_cost *= 1.3111111
 		buy_sound.play()
 
 func _on_fert_btn_pressed() -> void:
@@ -37,7 +39,7 @@ func _on_fert_btn_pressed() -> void:
 		Global.flower_spawn_count = int(Global.flower_spawn_count*1.25)
 		print("flower_spawning " + str(Global.flower_spawn_count))
 		Global.moneys -= Global.fert_cost
-		Global.fert_cost *= 2.111
+		Global.fert_cost *= 1.2811111
 		buy_sound.play()
 
 func _on_exit_shop_pressed() -> void:
