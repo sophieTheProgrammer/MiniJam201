@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0ym5vvrreqfb"]
+[gd_scene load_steps=4 format=3 uid="uid://0ym5vvrreqfb"]
 
 [ext_resource type="Texture2D" uid="uid://ds0o1vsfgpfos" path="res://icon.svg" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bf26atblryn67" path="res://sprite_2d.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://b2g6yhlx61guo" path="res://game_manager.gd" id="3_feb5d"]
 
 [node name="game" type="Node2D"]
 
@@ -9,3 +10,8 @@
 position = Vector2(-1, 2)
 texture = ExtResource("1_80nbo")
 script = ExtResource("2_e2o6t")
+
+[node name="Game Manager" type="Node" parent="."]
+script = ExtResource("3_feb5d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
