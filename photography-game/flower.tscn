@@ -5,4 +5,6 @@
 [node name="flower" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -3)
+scale = Vector2(0.199324, 0.256188)
 texture = ExtResource("1_p547k")
