@@ -1,23 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0d7wgdsg7fa3"]
+[gd_scene load_steps=5 format=3 uid="uid://b0d7wgdsg7fa3"]
 
 [ext_resource type="Script" uid="uid://dcbatsi5k7xmn" path="res://scripts/UI.gd" id="1_ol6fc"]
 [ext_resource type="Texture2D" uid="uid://q7ukt7kvkosa" path="res://stockimg/Film-Strip-A-.png" id="1_sbmog"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ol6fc"]
 [ext_resource type="Texture2D" uid="uid://nihdf52u0i5u" path="res://stockimg/7630510.png" id="4_qr5cg"]
-
-[sub_resource type="GDScript" id="GDScript_5su1v"]
-script/source = "extends RichTextLabel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="UI" type="Node2D"]
 script = ExtResource("1_ol6fc")
@@ -56,4 +42,3 @@ theme_override_font_sizes/normal_font_size = 100
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
-script = SubResource("GDScript_5su1v")
