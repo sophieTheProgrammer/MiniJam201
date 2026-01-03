@@ -89,10 +89,10 @@ scale = Vector2(0.357422, 0.357422)
 texture = ExtResource("9_dinhu")
 
 [node name="Moneys Label" type="RichTextLabel" parent="UI"]
-offset_left = 889.0
-offset_top = -8.0
-offset_right = 976.0
-offset_bottom = 150.0
+offset_left = 189.0
+offset_top = -15.0
+offset_right = 966.0
+offset_bottom = 143.0
 theme_override_fonts/normal_font = ExtResource("7_vtaks")
 theme_override_font_sizes/normal_font_size = 100
 text = "0"
