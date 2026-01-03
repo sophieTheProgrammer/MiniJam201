@@ -243,7 +243,7 @@ texture = ExtResource("11_deu2k")
 
 [node name="Moneys Label" type="RichTextLabel" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.381076
+anchor_left = -0.0217014
 offset_left = 16.0
 offset_top = -8.0
 offset_right = 976.0
