@@ -2,9 +2,9 @@ extends Node2D
 
 const flowerFab = preload("res://scenes/flower.tscn")
 # Called when the node enters the scene tree for the first time.
+@onready var frame: Sprite2D = $"../frame"
 func _ready() -> void:
 	spawn_flower(10)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
@@ -15,9 +15,11 @@ func count_items_in_frame():
 	#if they intersect then count is updated then it is returned at the end
 	var count = 0
 	var mousePos = get_global_mouse_position()
-	var mouseRect = Rect2(mousePos.x, mousePos.y, 2752*.05, 2064*.05)
+	var frameRect = frame.get_rect()
+	var mouseRect = Rect2(mousePos.x, mousePos.y, frame.texture.get_width()*frame.transform.get_scale().x, frame.texture.get_height()*frame.transform.get_scale().x)
 	for item in Global.frame_items:
 		var itemRect = Rect2(item.position.x, item.position.y, 592, 404)
+		print(itemRect)
 		if mouseRect.intersects(itemRect):
 			count+=1
 	return count
@@ -35,9 +37,7 @@ func spawn_flower(number_of_flowers):
 	for i in range(number_of_flowers):
 		var curr = flowerFab.instantiate()
 		curr.name = "flower"
-		
 		curr.position.x = (randi() % x_viewport_length) - x_viewport_length/2
 		curr.position.y = (randi() % y_viewport_length) - y_viewport_length/2
 		self.add_child(curr)
 		Global.frame_items.append(curr)
-	print(Global.frame_items)
