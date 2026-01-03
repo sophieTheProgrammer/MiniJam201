@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi7svjqntds2b"]
+[gd_scene load_steps=17 format=3 uid="uid://dd7cuys4slvak"]
 
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ef3hr"]
@@ -245,9 +245,8 @@ texture = ExtResource("11_deu2k")
 anchors_preset = -1
 anchor_left = -0.0217014
 offset_left = 16.0
-offset_top = -8.0
 offset_right = 976.0
-offset_bottom = 150.0
+offset_bottom = 158.0
 theme_override_fonts/normal_font = ExtResource("2_ef3hr")
 theme_override_font_sizes/normal_font_size = 100
 text = "0"

@@ -1,7 +1,7 @@
 extends Node2D
 
+const START = preload("res://scenes/start.tscn")
 
-const GAME = preload("res://scenes/game.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,6 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(GAME)
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_packed(START)

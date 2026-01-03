@@ -85,7 +85,7 @@ scale = Vector2(0.357422, 0.357422)
 texture = ExtResource("9_dinhu")
 
 [node name="Moneys Label" type="RichTextLabel" parent="UI"]
-offset_left = 889.0
+offset_left = 128.0
 offset_top = -8.0
 offset_right = 976.0
 offset_bottom = 150.0
