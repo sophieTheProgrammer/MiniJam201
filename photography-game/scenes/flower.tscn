@@ -5,5 +5,7 @@
 [node name="flower" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.485, 0.485)
-texture = ExtResource("1_8x8dx")
+
+position = Vector2(0, 0)
+scale = Vector2(0.199324, 0.256188)
+texture = ExtResource("1_p547k")
