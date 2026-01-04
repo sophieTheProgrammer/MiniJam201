@@ -1,22 +1,36 @@
 [gd_scene load_steps=3 format=3 uid="uid://car2avxyieyxi"]
 
 [ext_resource type="Script" uid="uid://dkbm33uw5dw6q" path="res://scripts/tutorial.gd" id="1_8ho6b"]
-[ext_resource type="Texture2D" uid="uid://ovhs28v2i1tv" path="res://handdrawn/tutorial/1.png" id="1_c13y7"]
+[ext_resource type="Texture2D" uid="uid://dsxh5ni7he51l" path="res://handdrawn/tutorial/0.png" id="2_8ho6b"]
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_8ho6b")
 
 [node name="Image" type="Sprite2D" parent="."]
-position = Vector2(583, 346)
-scale = Vector2(0.339026, 0.366158)
-texture = ExtResource("1_c13y7")
+position = Vector2(579.733, 323.5)
+scale = Vector2(0.358486, 0.397965)
+texture = ExtResource("2_8ho6b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TutorialLabel" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 30.0
 offset_top = 15.0
-offset_right = 1032.0
+offset_right = 1152.0
 offset_bottom = 173.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 50
 text = "placeholder"
+horizontal_alignment = 1
+
+[node name="clickToContinue" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = -301.0
+offset_top = 607.0
+offset_right = 545.0
+offset_bottom = 688.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "click to continue"
+horizontal_alignment = 1

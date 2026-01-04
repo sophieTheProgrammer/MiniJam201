@@ -7,11 +7,11 @@ var current_step = 0
 var tutorial_info = [
 	{
 		"text":"you are an avid nature photographer",
-		"image_path":"res://handdrawn/tutorial/1.png"
+		"image_path":"res://handdrawn/tutorial/0.png"
 	},
 	{
 		"text":"too bad you are BROKE!!!",
-		"image_path":"res://handdrawn/tutorial/2.png"
+		"image_path":"res://handdrawn/tutorial/1.png"
 	}
 ]
 func _ready() -> void:
