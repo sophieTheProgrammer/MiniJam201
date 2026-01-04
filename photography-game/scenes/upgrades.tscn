@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://do21cc2iohnka"]
+[gd_scene load_steps=15 format=3 uid="uid://dhag2hdkb3nmm"]
 
 [ext_resource type="Texture2D" uid="uid://b1px8vflcu0tu" path="res://resources/Screenshot 2026-01-03 at 4.16.56 PM.png" id="1_h5bgf"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
@@ -54,41 +54,24 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "shop"
 metadata/_edit_use_anchors_ = true
 
+[node name="stats2" parent="ui layer" instance=ExtResource("8_h5bgf")]
+
 [node name="film upgrade" type="Node2D" parent="ui layer"]
 
-[node name="film label" type="Sprite2D" parent="ui layer/film upgrade"]
-position = Vector2(187, 486)
-scale = Vector2(0.534722, 2.1875)
-texture = ExtResource("1_js5n2")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/film upgrade/film label"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="ui layer/film upgrade"]
 anchors_preset = -1
 anchor_left = -0.143427
 anchor_top = 0.0370951
-anchor_right = -0.143427
-anchor_bottom = 0.0370951
-offset_left = -129.194
-offset_top = -20.4728
-offset_right = 355.806
-offset_bottom = 179.527
-scale = Vector2(1.88, 0.696)
+anchor_right = -0.494121
+anchor_bottom = -0.177411
+offset_left = 225.0
+offset_top = 347.0
+offset_right = 710.0
+offset_bottom = 547.0
+scale = Vector2(1, 1.42)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "buy film"
-metadata/_edit_use_anchors_ = true
-
-[node name="film btn" type="Button" parent="ui layer/film upgrade"]
-offset_left = 64.0
-offset_top = 544.0
-offset_right = 288.0
-offset_bottom = 642.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yoata")
-text = "20$"
-icon = ExtResource("3_vi17a")
-flat = true
-icon_alignment = 1
+text = "2x"
 metadata/_edit_use_anchors_ = true
 
 [node name="Film Image" type="Sprite2D" parent="ui layer/film upgrade"]
@@ -99,24 +82,63 @@ rotation = -0.942478
 scale = Vector2(0.257036, 0.311267)
 texture = ExtResource("5_5wf0v")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/film upgrade"]
+[node name="film btn" type="Button" parent="ui layer/film upgrade"]
+offset_left = 64.0
+offset_top = 544.0
+offset_right = 288.0
+offset_bottom = 642.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yoata")
+text = "20$"
+icon = ExtResource("3_vi17a")
+flat = true
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="butterlfy label" type="Sprite2D" parent="ui layer/film upgrade"]
+position = Vector2(192.333, 492.5)
+scale = Vector2(0.602778, 2.71875)
+texture = ExtResource("1_js5n2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/film upgrade/butterlfy label"]
 anchors_preset = -1
-anchor_left = -0.143427
-anchor_top = 0.0370951
-anchor_right = -0.143427
-anchor_bottom = 0.0370951
-offset_left = 211.0
-offset_top = 333.0
-offset_right = 696.0
-offset_bottom = 533.0
-scale = Vector2(1, 1.42)
+anchor_left = 0.0135125
+anchor_top = 0.046425
+anchor_right = 0.130179
+anchor_bottom = 1.70267
+offset_left = -325.564
+offset_top = -17.1178
+offset_right = 155.436
+offset_bottom = 43.8822
+scale = Vector2(1.23, 0.34)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "2x"
+theme_override_font_sizes/normal_font_size = 69
+text = "Buy Film"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="fertilizer" type="Node2D" parent="ui layer"]
 position = Vector2(712, -2)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/fertilizer"]
+anchors_preset = -1
+anchor_left = -0.143427
+anchor_top = 0.0370951
+anchor_right = -0.199852
+anchor_bottom = -0.134201
+offset_left = 6.0
+offset_top = 393.0
+offset_right = 491.002
+offset_bottom = 593.0
+scale = Vector2(0.704405, 0.970474)
+theme = SubResource("Theme_u8xvj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "(more flowers)"
+metadata/_edit_use_anchors_ = true
 
 [node name="fert label" type="Sprite2D" parent="ui layer/fertilizer"]
 position = Vector2(129, 487)
@@ -155,35 +177,19 @@ flat = true
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ui layer"]
-anchors_preset = -1
-anchor_left = -0.143427
-anchor_top = 0.0370951
-anchor_right = -0.143427
-anchor_bottom = 0.0370951
-offset_left = 885.228
-offset_top = 367.962
-offset_right = 1370.23
-offset_bottom = 567.962
-scale = Vector2(0.704405, 0.970474)
-theme = SubResource("Theme_u8xvj")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "(more flowers)"
-metadata/_edit_use_anchors_ = true
-
 [node name="one with the butterflies upgrade" type="Node2D" parent="ui layer"]
 position = Vector2(356, -1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/one with the butterflies upgrade"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="ui layer/one with the butterflies upgrade"]
 anchors_preset = -1
 anchor_left = -0.143427
 anchor_top = 0.0370951
 anchor_right = -0.143427
-anchor_bottom = 0.0370951
-offset_left = -1.0
-offset_top = 391.0
-offset_right = 484.0
-offset_bottom = 591.0
+anchor_bottom = -0.175868
+offset_left = -9.0
+offset_top = 397.0
+offset_right = 476.0
+offset_bottom = 597.0
 scale = Vector2(0.704405, 0.970474)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -197,10 +203,10 @@ texture = ExtResource("1_js5n2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui layer/one with the butterflies upgrade/butterlfy label"]
 anchors_preset = -1
-anchor_left = -0.00107085
+anchor_left = 0.0135125
 anchor_top = 0.046425
-anchor_right = 0.126012
-anchor_bottom = 1.82767
+anchor_right = 0.130179
+anchor_bottom = 1.70267
 offset_left = -328.486
 offset_top = -20.4856
 offset_right = 152.514
@@ -235,7 +241,7 @@ texture = ExtResource("7_deu2k")
 [node name="Node" type="Node" parent="ui layer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ui layer/Node"]
-position = Vector2(1052.5, 601)
+position = Vector2(1044.5, 601)
 scale = Vector2(0.75, 1.02381)
 texture = ExtResource("3_vi17a")
 

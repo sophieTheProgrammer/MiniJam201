@@ -3,16 +3,18 @@ extends Node2D
 @onready var earnings: RichTextLabel = $"../UI/earnings"
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@export var debug = false
+@export var debug = true
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
 var upgrades_scene:PackedScene = load("res://scenes/upgrades.tscn")
-var game_over:PackedScene = load("res://scenes/game_over.tscn")
+var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
+@onready var game_over_timer: Timer = $Timer
 var frame_items = []
 var fade = false
+var game_over = false
 func _ready() -> void:
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
@@ -24,6 +26,9 @@ func _process(delta: float) -> void:
 		earnings.modulate.a -= .01
 	if Global.moneys < Global.film_cost and Global.film_amount <= 0:
 		get_tree().change_scene_to_packed(game_over)
+	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
+		game_over_timer.start()
+		game_over = true
 	if Input.is_action_just_released("click"):
 		if Global.film_amount > 0:
 			click.play()
@@ -32,7 +37,8 @@ func _process(delta: float) -> void:
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
 			Global.moneys += count_items_in_frame()
-			
+		if (game_over):
+			get_tree().change_scene_to_packed(game_over_scene)
 
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
@@ -45,7 +51,7 @@ func count_items_in_frame():
 	var mousePos = get_global_mouse_position()
 
 	var scale = frame.transform.get_scale().x
-	var mouseRect = Rect2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
+	var mouseRect = Rect2(mousePos.x - (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
 	if debug:
 		var mr = ColorRect.new()
 		mr.position = Vector2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y- (frame.texture.get_height()*scale)/2)
@@ -55,8 +61,15 @@ func count_items_in_frame():
 		add_child(mr)
 	for item in frame_items:
 		var tex = item.sprite
-		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
+		var itemRect = Rect2(item.position.x - tex.texture.get_width()*tex.transform.get_scale().x/2, item.position.y - tex.texture.get_height()*tex.transform.get_scale().y/2, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
 		if mouseRect.intersects(itemRect):
+			if debug:
+				var ir = ColorRect.new()
+				ir.position = Vector2(item.position.x - tex.texture.get_width()*tex.transform.get_scale().x/2, item.position.y - tex.texture.get_height()*tex.transform.get_scale().y/2)
+				ir.size = Vector2(tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
+				ir.color = Color(0,0,255)
+				ir.modulate.a = .1
+				add_child(ir)
 			if item.type == Global.FrameTypes.BUTTERFLY:
 				butterflyCount += 1
 			elif item.type == Global.FrameTypes.FLOWER:
@@ -104,3 +117,4 @@ func _on_shop_btn_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	fade = true
+	get_tree().change_scene_to_packed(game_over_scene)
