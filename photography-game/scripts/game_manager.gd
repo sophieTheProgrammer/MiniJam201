@@ -7,6 +7,7 @@ extends Node2D
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
+const beetleFab = preload("res://scenes/beetle.tscn")
 var upgrades_scene:PackedScene = load("res://scenes/upgrades.tscn")
 var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
@@ -22,6 +23,7 @@ func _ready() -> void:
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
 	spawn_flower(Global.flower_spawn_count)
 	spawn_butterfly(Global.butterfly_spawn_count)
+	spawn_beetle(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
 	if fade:
@@ -100,7 +102,6 @@ func spawn_flower(number_of_flowers):
 func spawn_butterfly(number_of_butterflies):
 	# set variables
 	var row = 5
-	var flowers_array = []
 
 	for i in range(number_of_butterflies):
 		var curr = butterflyFab.instantiate()
@@ -110,6 +111,17 @@ func spawn_butterfly(number_of_butterflies):
 		self.add_child(curr)
 		frame_items.append(curr)
 
+func spawn_beetle(num):
+	# set variables
+	var row = 5
+
+	for i in range(num):
+		var curr = beetleFab.instantiate()
+		curr.name = "beetle"
+		curr.position.x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
+		curr.position.y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
+		self.add_child(curr)
+		frame_items.append(curr)
 
 func _on_shop_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(upgrades_scene)
