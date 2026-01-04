@@ -1,4 +1,6 @@
 extends Node2D
+@onready var timer: Timer = $"../UI/earnings/Timer"
+@onready var earnings: RichTextLabel = $"../UI/earnings"
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
 @export var debug = false
@@ -10,7 +12,7 @@ var game_over:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
 var frame_items = []
-
+var fade = false
 func _ready() -> void:
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
@@ -18,6 +20,8 @@ func _ready() -> void:
 	spawn_butterfly(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
+	if fade:
+		earnings.modulate.a -= .01
 	if Global.moneys < Global.film_cost and Global.film_amount <= 0:
 		get_tree().change_scene_to_packed(game_over)
 	if Input.is_action_just_released("click"):
@@ -33,7 +37,11 @@ func _process(delta: float) -> void:
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
 	#if they intersect then count is updated then it is returned at the end
-	var count = 0
+	earnings.show()
+	fade = false
+	earnings.modulate.a = 1
+	var butterflyCount = 0
+	var flowerCount = 0
 	var mousePos = get_global_mouse_position()
 
 	var scale = frame.transform.get_scale().x
@@ -50,14 +58,17 @@ func count_items_in_frame():
 		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
 		if mouseRect.intersects(itemRect):
 			if item.type == Global.FrameTypes.BUTTERFLY:
-				count += 2
-				print("ITZ A BEAUTIFUL BUTTERFLY, count is " + str(count))
+				butterflyCount += 1
 			elif item.type == Global.FrameTypes.FLOWER:
-				count += 1
-				print("ITS A FLOWEY, count is " + str(count))
-	print()
-	return count
-
+				flowerCount += 1
+		earnings.text = "+" + str(butterflyCount * 4 + flowerCount) + " dollars!\n"
+	if butterflyCount > 0:
+		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(butterflyCount * 4) + ")\n")
+	if flowerCount > 0:
+		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")")
+	timer.start()
+	return butterflyCount * 4 + flowerCount
+	
 # spawns flowers in random location in certain range from origin
 func spawn_flower(number_of_flowers):
 	# set variables
@@ -89,3 +100,7 @@ func spawn_butterfly(number_of_butterflies):
 
 func _on_shop_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(upgrades_scene)
+
+
+func _on_timer_timeout() -> void:
+	fade = true

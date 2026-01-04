@@ -24,7 +24,7 @@ script = ExtResource("1_lnu2h")
 z_index = 100
 position = Vector2(-1, 2)
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_vtaks")
+texture = ExtResource("2_lbhrr")
 script = ExtResource("3_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -69,4 +69,21 @@ icon_alignment = 1
 
 [node name="stats" parent="UI" instance=ExtResource("11_kvpfn")]
 
+[node name="earnings" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 720.0
+offset_top = 139.0
+offset_right = 1110.0
+offset_bottom = 445.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+text = "+10 dollars!
+1 butterfly ($3)
+2 flowers ($2)"
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="UI/earnings"]
+wait_time = 1.5
+
 [connection signal="pressed" from="UI/shop btn" to="Game Manager" method="_on_shop_btn_pressed"]
+[connection signal="timeout" from="UI/earnings/Timer" to="Game Manager" method="_on_timer_timeout"]

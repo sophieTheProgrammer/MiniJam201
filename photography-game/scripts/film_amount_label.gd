@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	if Global.film_amount == 0:
 		set("theme_override_colors/default_color", Color(255,0,0))
 	else:
-		set("theme_override_colors/default_color", Color(255,255,255))
+		set("theme_override_colors/default_color", Color(0,0,0))
