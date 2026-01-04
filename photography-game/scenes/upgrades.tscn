@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhag2hdkb3nmm"]
+[gd_scene load_steps=15 format=3 uid="uid://do21cc2iohnka"]
 
 [ext_resource type="Texture2D" uid="uid://b1px8vflcu0tu" path="res://resources/Screenshot 2026-01-03 at 4.16.56 PM.png" id="1_h5bgf"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
@@ -60,8 +60,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="ui layer/film upgrade"]
 anchors_preset = -1
-anchor_left = -0.143427
-anchor_top = 0.0370951
+anchor_left = -0.494121
+anchor_top = -0.177411
 anchor_right = -0.494121
 anchor_bottom = -0.177411
 offset_left = 225.0
@@ -126,8 +126,8 @@ position = Vector2(712, -2)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui layer/fertilizer"]
 anchors_preset = -1
-anchor_left = -0.143427
-anchor_top = 0.0370951
+anchor_left = -0.199852
+anchor_top = -0.134201
 anchor_right = -0.199852
 anchor_bottom = -0.134201
 offset_left = 6.0
@@ -183,7 +183,7 @@ position = Vector2(356, -1)
 [node name="RichTextLabel2" type="RichTextLabel" parent="ui layer/one with the butterflies upgrade"]
 anchors_preset = -1
 anchor_left = -0.143427
-anchor_top = 0.0370951
+anchor_top = -0.175868
 anchor_right = -0.143427
 anchor_bottom = -0.175868
 offset_left = -9.0

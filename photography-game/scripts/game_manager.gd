@@ -3,7 +3,7 @@ extends Node2D
 @onready var earnings: RichTextLabel = $"../UI/earnings"
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@export var debug = true
+@export var debug = false
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
@@ -11,7 +11,8 @@ var upgrades_scene:PackedScene = load("res://scenes/upgrades.tscn")
 var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
-@onready var game_over_timer: Timer = $Timer
+@onready var game_over_timer: Timer = $"../gameovertimer"
+
 var frame_items = []
 var fade = false
 var game_over = false
@@ -24,8 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if fade:
 		earnings.modulate.a -= .01
-	if Global.moneys < Global.film_cost and Global.film_amount <= 0:
-		get_tree().change_scene_to_packed(game_over)
+
 	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
 		game_over_timer.start()
 		game_over = true
@@ -37,8 +37,7 @@ func _process(delta: float) -> void:
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
 			Global.moneys += count_items_in_frame()
-		if (game_over):
-			get_tree().change_scene_to_packed(game_over_scene)
+
 
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
@@ -117,4 +116,8 @@ func _on_shop_btn_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	fade = true
+	
+
+
+func _on_gameovertimer_timeout() -> void:
 	get_tree().change_scene_to_packed(game_over_scene)
