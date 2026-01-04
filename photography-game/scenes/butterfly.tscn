@@ -44,6 +44,7 @@ scale = Vector2(0.20915, 0.20915)
 texture = SubResource("CompressedTexture2D_42pi4")
 
 [node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.001
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
