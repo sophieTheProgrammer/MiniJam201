@@ -11,7 +11,7 @@ var min_speed = 2
 var max_speed = 4 - min_speed
 var speed = 4.0
 const ACCELERATION = 4
-const type = Global.FrameTypes.BUTTERFLY
+const type = Global.FrameTypes.BEETLE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	move_timer.start()

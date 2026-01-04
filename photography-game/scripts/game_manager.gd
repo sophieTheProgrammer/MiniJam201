@@ -3,7 +3,7 @@ extends Node2D
 @onready var earnings: RichTextLabel = $"../UI/earnings"
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@export var debug = false
+@export var debug = true
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
@@ -21,8 +21,8 @@ func _ready() -> void:
 	Audio.play_cont_music()
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
-	spawn_flower(Global.flower_spawn_count)
-	spawn_butterfly(Global.butterfly_spawn_count)
+	#spawn_flower(Global.flower_spawn_count)
+	#spawn_butterfly(Global.butterfly_spawn_count)
 	spawn_beetle(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
 			Global.moneys += count_items_in_frame()
+			Global.moneys = max(Global.moneys, 0)
 
 
 func count_items_in_frame():
@@ -50,8 +51,9 @@ func count_items_in_frame():
 	earnings.modulate.a = 1
 	var butterflyCount = 0
 	var flowerCount = 0
+	var beetleCount = 0
 	var mousePos = get_global_mouse_position()
-
+	var money
 	var scale = frame.transform.get_scale().x
 	var mouseRect = Rect2(mousePos.x - (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
 	if debug:
@@ -76,13 +78,18 @@ func count_items_in_frame():
 				butterflyCount += 1
 			elif item.type == Global.FrameTypes.FLOWER:
 				flowerCount += 1
-		earnings.text = "+" + str(butterflyCount * 4 + flowerCount) + " dollars!\n"
+			elif item.type == Global.FrameTypes.BEETLE:
+				beetleCount+=1
+		money = butterflyCount * 4 + flowerCount - (beetleCount*2)
+		earnings.text = "Earned " + str(money) + " dollars!\n"
 	if butterflyCount > 0:
 		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(butterflyCount * 4) + ")\n")
 	if flowerCount > 0:
 		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")")
+	if beetleCount > 0:
+		earnings.append_text(str(beetleCount) + " beetle ($-" + str(beetleCount*2) + ")")
 	timer.start()
-	return butterflyCount * 4 + flowerCount
+	return money
 	
 # spawns flowers in random location in certain range from origin
 func spawn_flower(number_of_flowers):
