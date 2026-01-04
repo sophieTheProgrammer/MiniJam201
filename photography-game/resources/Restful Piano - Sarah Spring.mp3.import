@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jtjo3densaqk"
+path="res://.godot/imported/Restful Piano - Sarah Spring.mp3-296e1cfe61bd7f8de6f0f4dff7335fd7.mp3str"
+
+[deps]
+
+source_file="res://resources/Restful Piano - Sarah Spring.mp3"
+dest_files=["res://.godot/imported/Restful Piano - Sarah Spring.mp3-296e1cfe61bd7f8de6f0f4dff7335fd7.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
