@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvxpwplpncki6"
-path="res://.godot/imported/beetle.jpeg-17c672ce2e847b9034eacfddcbbc22e3.ctex"
+uid="uid://yqbry55mfbjm"
+path="res://.godot/imported/fertizler.png-f1218ce86b204987b4f2fc321a877656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/beetle.jpeg"
-dest_files=["res://.godot/imported/beetle.jpeg-17c672ce2e847b9034eacfddcbbc22e3.ctex"]
+source_file="res://handdrawn/fertizler.png"
+dest_files=["res://.godot/imported/fertizler.png-f1218ce86b204987b4f2fc321a877656.ctex"]
 
 [params]
 

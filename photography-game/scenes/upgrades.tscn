@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://do21cc2iohnka"]
+[gd_scene load_steps=16 format=3 uid="uid://do21cc2iohnka"]
 
 [ext_resource type="Texture2D" uid="uid://b1px8vflcu0tu" path="res://resources/Screenshot 2026-01-03 at 4.16.56 PM.png" id="1_h5bgf"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="3_vi17a"]
 [ext_resource type="Texture2D" uid="uid://dmunrrl4wk3bj" path="res://handdrawn/shop icons/film.png" id="5_5wf0v"]
 [ext_resource type="Texture2D" uid="uid://b8panb8jhbicp" path="res://handdrawn/butterfly/Untitled_Artwork-1.png" id="7_deu2k"]
+[ext_resource type="Texture2D" uid="uid://yqbry55mfbjm" path="res://handdrawn/fertizler.png" id="8_5wf0v"]
 [ext_resource type="PackedScene" uid="uid://dbodo04ow2lyw" path="res://scenes/stats.tscn" id="8_h5bgf"]
 [ext_resource type="AudioStream" uid="uid://cgvmaf1438tl" path="res://resources/buy_1.mp3" id="12_3vdl0"]
 
@@ -176,6 +177,11 @@ icon = ExtResource("3_vi17a")
 flat = true
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Fertizler" type="Sprite2D" parent="ui layer/fertilizer"]
+position = Vector2(130, 259)
+scale = Vector2(0.112935, 0.112935)
+texture = ExtResource("8_5wf0v")
 
 [node name="one with the butterflies upgrade" type="Node2D" parent="ui layer"]
 position = Vector2(356, -1)
