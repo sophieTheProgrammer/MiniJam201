@@ -50,6 +50,7 @@ volume_db = 10.306
 
 [node name="error" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("7_dinhu")
+volume_db = 15.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = SubResource("GDScript_vtaks")
@@ -83,7 +84,7 @@ text = "+10 dollars!
 horizontal_alignment = 2
 
 [node name="Timer" type="Timer" parent="UI/earnings"]
-wait_time = 1.5
+wait_time = 1.974
 
 [node name="gameovertimer" type="Timer" parent="."]
 
