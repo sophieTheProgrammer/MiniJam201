@@ -1,7 +1,7 @@
 extends Node2D
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-
+@export var debug = false
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
@@ -35,10 +35,16 @@ func count_items_in_frame():
 	#if they intersect then count is updated then it is returned at the end
 	var count = 0
 	var mousePos = get_global_mouse_position()
-	var flower = flowerFab.instantiate()
-	var butterfly = butterflyFab.instantiate()
-	var mouseRect = Rect2(mousePos.x, mousePos.y, frame.texture.get_width()*frame.transform.get_scale().x, frame.texture.get_height()*frame.transform.get_scale().x)
-	print(mouseRect)
+
+	var scale = frame.transform.get_scale().x
+	var mouseRect = Rect2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
+	if debug:
+		var mr = ColorRect.new()
+		mr.position = Vector2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y- (frame.texture.get_height()*scale)/2)
+		mr.size = Vector2(frame.texture.get_width()*frame.transform.get_scale().x, frame.texture.get_height()*frame.transform.get_scale().x)
+		mr.color = Color(255,0,0)
+		mr.modulate.a = .1
+		add_child(mr)
 	for item in frame_items:
 		var tex = item.sprite
 		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
@@ -46,11 +52,11 @@ func count_items_in_frame():
 		if mouseRect.intersects(itemRect):
 			if item.type == Global.FrameTypes.BUTTERFLY:
 				count += 2
-				print("ITZ A BEAUTIFUL BUTTERFLY")
+				print("ITZ A BEAUTIFUL BUTTERFLY, count is " + str(count))
 			elif item.type == Global.FrameTypes.FLOWER:
 				count += 1
-				print("ITS A FLOWEY")
-				
+				print("ITS A FLOWEY, count is " + str(count))
+	print()
 	return count
 
 # spawns flowers in random location in certain range from origin
