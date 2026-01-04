@@ -20,6 +20,9 @@ script/source = "extends CanvasLayer
 [node name="Game Manager" type="Node2D" parent="."]
 script = ExtResource("1_lnu2h")
 
+[node name="Timer" type="Timer" parent="Game Manager"]
+wait_time = 2.0
+
 [node name="frame" type="Sprite2D" parent="."]
 z_index = 100
 position = Vector2(-1, 2)
@@ -69,4 +72,5 @@ icon_alignment = 1
 
 [node name="stats" parent="UI" instance=ExtResource("11_kvpfn")]
 
+[connection signal="timeout" from="Game Manager/Timer" to="Game Manager" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/shop btn" to="Game Manager" method="_on_shop_btn_pressed"]

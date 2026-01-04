@@ -6,11 +6,12 @@ extends Node2D
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
 var upgrades_scene:PackedScene = load("res://scenes/upgrades.tscn")
-var game_over:PackedScene = load("res://scenes/game_over.tscn")
+var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
+@onready var game_over_timer: Timer = $Timer
 var frame_items = []
-
+var game_over = false
 func _ready() -> void:
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
@@ -18,8 +19,9 @@ func _ready() -> void:
 	spawn_butterfly(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
-	if Global.moneys < Global.film_cost and Global.film_amount <= 0:
-		get_tree().change_scene_to_packed(game_over)
+	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
+		game_over_timer.start()
+		game_over = true
 	if Input.is_action_just_released("click"):
 		if Global.film_amount > 0:
 			click.play()
@@ -28,7 +30,8 @@ func _process(delta: float) -> void:
 		if (Global.film_amount >= 1):
 			Global.film_amount -= 1
 			Global.moneys += count_items_in_frame()
-			
+		if (game_over):
+			get_tree().change_scene_to_packed(game_over_scene)
 
 func count_items_in_frame():
 	#makes 2 rects of the frame box and the frame item and then sees if they intersect
@@ -98,3 +101,7 @@ func spawn_butterfly(number_of_butterflies):
 
 func _on_shop_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(upgrades_scene)
+
+
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_packed(game_over_scene)
