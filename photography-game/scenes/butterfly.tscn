@@ -1,11 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbgciqkletkme"]
 
-[ext_resource type="Texture2D" uid="uid://c7jjhaqqt0i4v" path="res://stockimg/istockphoto-1482089054-612x612.jpg" id="1_4ki4n"]
 [ext_resource type="Script" uid="uid://8203j0oyjgom" path="res://scripts/butterfly.gd" id="1_tq3rt"]
 [ext_resource type="Texture2D" uid="uid://b8panb8jhbicp" path="res://handdrawn/butterfly/Untitled_Artwork-1.png" id="3_h6q6t"]
 [ext_resource type="Texture2D" uid="uid://dqh5x8jyo5nsx" path="res://handdrawn/butterfly/Untitled_Artwork-2.png" id="4_rpr2g"]
 [ext_resource type="Texture2D" uid="uid://byitrtr4ym0pg" path="res://handdrawn/butterfly/Untitled_Artwork-3.png" id="5_1oym5"]
 [ext_resource type="Texture2D" uid="uid://bfrw86hqlxc6e" path="res://handdrawn/butterfly/Untitled_Artwork-4.png" id="6_lwlwe"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42pi4"]
+load_path = "res://.godot/imported/istockphoto-1482089054-612x612.jpg-c918dc88ae8c313c0914f0252a5cb35c.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kn8da"]
 animations = [{
@@ -40,7 +42,7 @@ script = ExtResource("1_tq3rt")
 visible = false
 position = Vector2(1.90735e-06, 1.90735e-06)
 scale = Vector2(0.20915, 0.20915)
-texture = ExtResource("1_4ki4n")
+texture = SubResource("CompressedTexture2D_42pi4")
 
 [node name="MoveTimer" type="Timer" parent="."]
 autostart = true

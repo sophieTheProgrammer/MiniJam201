@@ -21,3 +21,8 @@ func _on_start_pressed() -> void:
 	Global.film_cost = 1.88
 	Global.bfly_cost = 10
 	Global.fert_cost = 5
+
+
+func _on_tutorial_pressed() -> void:
+	print("switching to tutorial")
+	pass # Replace with function body.
