@@ -48,7 +48,6 @@ func count_items_in_frame():
 	for item in frame_items:
 		var tex = item.sprite
 		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
-		print(itemRect)
 		if mouseRect.intersects(itemRect):
 			if item.type == Global.FrameTypes.BUTTERFLY:
 				count += 2

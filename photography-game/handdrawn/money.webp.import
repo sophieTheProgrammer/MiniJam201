@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn4ck41okgb7j"
-path="res://.godot/imported/fertilizer.jpeg-a3b259318b9b84cbca5cf35f120c9366.ctex"
+uid="uid://dajaa5x0nkq8y"
+path="res://.godot/imported/money.webp-c58d0af52542ca101d2c108daaafcd11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stockimg/fertilizer.jpeg"
-dest_files=["res://.godot/imported/fertilizer.jpeg-a3b259318b9b84cbca5cf35f120c9366.ctex"]
+source_file="res://handdrawn/money.webp"
+dest_files=["res://.godot/imported/money.webp-c58d0af52542ca101d2c108daaafcd11.ctex"]
 
 [params]
 
