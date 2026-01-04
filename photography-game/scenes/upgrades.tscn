@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://do21cc2iohnka"]
+[gd_scene load_steps=15 format=3 uid="uid://dhag2hdkb3nmm"]
 
 [ext_resource type="Texture2D" uid="uid://b1px8vflcu0tu" path="res://resources/Screenshot 2026-01-03 at 4.16.56 PM.png" id="1_h5bgf"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
@@ -54,8 +54,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "shop"
 metadata/_edit_use_anchors_ = true
 
-[node name="stats" parent="ui layer" instance=ExtResource("8_h5bgf")]
-scale = Vector2(1, 1)
+[node name="stats2" parent="ui layer" instance=ExtResource("8_h5bgf")]
 
 [node name="film upgrade" type="Node2D" parent="ui layer"]
 
