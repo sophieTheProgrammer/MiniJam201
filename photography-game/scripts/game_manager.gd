@@ -1,7 +1,7 @@
 extends Node2D
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@export var debug = false
+@export var debug = true
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
@@ -37,7 +37,7 @@ func count_items_in_frame():
 	var mousePos = get_global_mouse_position()
 
 	var scale = frame.transform.get_scale().x
-	var mouseRect = Rect2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
+	var mouseRect = Rect2(mousePos.x - (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
 	if debug:
 		var mr = ColorRect.new()
 		mr.position = Vector2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y- (frame.texture.get_height()*scale)/2)
@@ -47,14 +47,22 @@ func count_items_in_frame():
 		add_child(mr)
 	for item in frame_items:
 		var tex = item.sprite
-		var itemRect = Rect2(item.position.x, item.position.y, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
-		print(itemRect)
+		var itemRect = Rect2(item.position.x - tex.texture.get_width()*tex.transform.get_scale().x/2, item.position.y - tex.texture.get_height()*tex.transform.get_scale().y/2, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
 		if mouseRect.intersects(itemRect):
+			if debug:
+				var ir = ColorRect.new()
+				ir.position = Vector2(item.position.x - tex.texture.get_width()*tex.transform.get_scale().x/2, item.position.y - tex.texture.get_height()*tex.transform.get_scale().y/2)
+				ir.size = Vector2(tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
+				ir.color = Color(0,0,255)
+				ir.modulate.a = .1
+				add_child(ir)
 			if item.type == Global.FrameTypes.BUTTERFLY:
 				count += 2
+				print(itemRect)
 				print("ITZ A BEAUTIFUL BUTTERFLY, count is " + str(count))
 			elif item.type == Global.FrameTypes.FLOWER:
 				count += 1
+				print("Mouse: ", mouseRect, "item: ",itemRect)
 				print("ITS A FLOWEY, count is " + str(count))
 	print()
 	return count

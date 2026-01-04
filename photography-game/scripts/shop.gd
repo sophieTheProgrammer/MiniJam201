@@ -12,33 +12,30 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Global.film_cost = int(ceil(Global.film_cost))
-	Global.bfly_cost = int(ceil(Global.bfly_cost))
-	Global.fert_cost = int(ceil(Global.fert_cost))
-	film_btn.text = "$" + str(Global.film_cost)
-	bfly_btn.text = "$" + str(Global.bfly_cost)
-	fert_btn.text = "$" + str(Global.fert_cost)
+	film_btn.text = "$" + str(int(floor(Global.film_cost)))
+	bfly_btn.text = "$" + str(int(floor(Global.bfly_cost)))
+	fert_btn.text = "$" + str(int(floor(Global.fert_cost)))
 
 func _on_film_btn_pressed() -> void:
-	if (Global.moneys >= Global.film_cost):
+	if (Global.moneys >= int(floor(Global.film_cost))):
 		Global.film_amount += 2
-		Global.moneys -= Global.film_cost
-		Global.film_cost *= 1.266111
+		Global.moneys -= int(floor(Global.film_cost))
+		Global.film_cost *= 1.11111
 		buy_sound.play()
 
 func _on_butterfly_btn_pressed() -> void:
-	if (Global.moneys >= Global.bfly_cost):
-		Global.butterfly_spawn_count = int(Global.butterfly_spawn_count*1.25)
+	if (Global.moneys >= int(floor(Global.bfly_cost))):
+		Global.butterfly_spawn_count = int(Global.butterfly_spawn_count*1.4)
 		print("butterfly spawning ", str(Global.butterfly_spawn_count))
-		Global.moneys -= Global.bfly_cost
+		Global.moneys -= int(floor(Global.bfly_cost))
 		Global.bfly_cost *= 1.3111111
 		buy_sound.play()
 
 func _on_fert_btn_pressed() -> void:
-	if (Global.moneys >= Global.fert_cost):
+	if (Global.moneys >= int(floor(Global.fert_cost))):
 		Global.flower_spawn_count = int(Global.flower_spawn_count*1.25)
 		print("flower_spawning " + str(Global.flower_spawn_count))
-		Global.moneys -= Global.fert_cost
+		Global.moneys -= int(floor(Global.fert_cost))
 		Global.fert_cost *= 1.2811111
 		buy_sound.play()
 
