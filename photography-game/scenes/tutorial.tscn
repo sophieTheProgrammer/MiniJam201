@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://car2avxyieyxi"]
+[gd_scene load_steps=5 format=3 uid="uid://car2avxyieyxi"]
 
 [ext_resource type="Script" uid="uid://dkbm33uw5dw6q" path="res://scripts/tutorial.gd" id="1_8ho6b"]
-[ext_resource type="Texture2D" uid="uid://dsxh5ni7he51l" path="res://handdrawn/tutorial/0.png" id="2_8ho6b"]
+[ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="2_8ho6b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c13y7"]
+load_path = "res://.godot/imported/0.png-32acfafc1e5d530e08010d1c28a9efb0.ctex"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph3nu"]
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_8ho6b")
@@ -9,7 +14,7 @@ script = ExtResource("1_8ho6b")
 [node name="Image" type="Sprite2D" parent="."]
 position = Vector2(579.733, 323.5)
 scale = Vector2(0.358486, 0.397965)
-texture = ExtResource("2_8ho6b")
+texture = SubResource("CompressedTexture2D_c13y7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,3 +39,17 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 text = "click to continue"
 horizontal_alignment = 1
+
+[node name="start" type="Button" parent="."]
+visible = false
+offset_left = 178.0
+offset_top = 319.0
+offset_right = 382.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph3nu")
+text = "start"
+icon = ExtResource("2_8ho6b")
+flat = true
+icon_alignment = 1

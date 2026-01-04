@@ -2,7 +2,11 @@ extends Node2D
 
 @onready var tutorial_label: RichTextLabel = $CanvasLayer/TutorialLabel
 @onready var image_rect: Sprite2D = $Image
+@onready var start: Button = $start
+
+
 var current_step = 0
+const GAME = preload("res://scenes/game.tscn")
 
 var tutorial_info = [
 	{
@@ -12,6 +16,34 @@ var tutorial_info = [
 	{
 		"text":"too bad you are BROKE!!!",
 		"image_path":"res://handdrawn/tutorial/1.png"
+	},
+	{
+		"text":"fortunatly... you have one more film left in your camera",
+		"image_path":"res://handdrawn/tutorial/2.png"
+	},
+	{
+		"text":"and people are willing to PAY for cool nature pics!",
+		"image_path":"res://handdrawn/tutorial/3.png"
+	},
+	{
+		"text":"they love flowers and butterflys",
+		"image_path":"res://handdrawn/tutorial/4.png"
+	},
+	{
+		"text":"watch out for bugs though...",
+		"image_path":"res://handdrawn/tutorial/5.png"
+	},
+	{
+		"text":"use arrow keys to find your best shot, and click to shoot",
+		"image_path":"res://handdrawn/tutorial/6.png"
+	},
+	{
+		"text":"buy film and upgrades at the shop if you dare",
+		"image_path":"res://handdrawn/tutorial/7.png"
+	},
+	{
+		"text":"good luck!",
+		"image_path":"res://handdrawn/tutorial/8.png"
 	}
 ]
 func _ready() -> void:
@@ -23,9 +55,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		current_step += 1
-		loadTextFromIndex(1)
-		loadImageFromIndex(1)
-	
+		if current_step == 8:
+			print("current step is 9")
+			get_tree().change_scene_to_packed(GAME)
+
+		loadTextFromIndex(current_step)
+		loadImageFromIndex(current_step)
+			
 func loadImageFromIndex(index):
 	if not tutorial_info[index]["image_path"]:
 		printerr("Image Texture Doesn't Exist")
