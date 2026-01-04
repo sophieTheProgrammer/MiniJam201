@@ -20,7 +20,12 @@ func _on_film_btn_pressed() -> void:
 	if (Global.moneys >= int(floor(Global.film_cost))):
 		Global.film_amount += 2
 		Global.moneys -= int(floor(Global.film_cost))
-		Global.film_cost *= 1.11111
+		if (Global.film_cost <= 10):
+			Global.film_cost *= 1.051
+		elif (Global.film_cost <= 30):
+			Global.film_cost *= 1.031
+		else:
+			Global.film_cost *= 1.011
 		buy_sound.play()
 
 func _on_butterfly_btn_pressed() -> void:
@@ -28,7 +33,12 @@ func _on_butterfly_btn_pressed() -> void:
 		Global.butterfly_spawn_count = int(Global.butterfly_spawn_count*1.4)
 		print("butterfly spawning ", str(Global.butterfly_spawn_count))
 		Global.moneys -= int(floor(Global.bfly_cost))
-		Global.bfly_cost *= 1.3111111
+		if (Global.bfly_cost <= 300):
+			Global.bfly_cost *= 1.811
+		elif (Global.bfly_cost <= 800):
+			Global.bfly_cost *= 1.511
+		else:
+			Global.bfly_cost *= 1.311
 		buy_sound.play()
 
 func _on_fert_btn_pressed() -> void:
@@ -36,7 +46,12 @@ func _on_fert_btn_pressed() -> void:
 		Global.flower_spawn_count = int(Global.flower_spawn_count*1.25)
 		print("flower_spawning " + str(Global.flower_spawn_count))
 		Global.moneys -= int(floor(Global.fert_cost))
-		Global.fert_cost *= 1.2811111
+		if (Global.fert_cost <= 200):
+			Global.fert_cost *= 1.711
+		elif (Global.fert_cost <= 500):
+			Global.fert_cost *= 1.311
+		else:
+			Global.fert_cost *= 1.111
 		buy_sound.play()
 
 func _on_exit_shop_pressed() -> void:

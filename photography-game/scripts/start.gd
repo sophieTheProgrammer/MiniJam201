@@ -20,7 +20,7 @@ func _on_start_pressed() -> void:
 	Global.moneys = 0
 	Global.flower_spawn_count = 30
 	Global.butterfly_spawn_count = randi() % 2 + 6
-	Global.film_cost = 1.88
+	Global.film_cost = 2.99
 	Global.bfly_cost = 10
 	Global.fert_cost = 5
 

@@ -13,6 +13,8 @@ var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var game_over_timer: Timer = $"../gameovertimer"
 
+var butterfly_value = 2.1111
+var flower_value = 1
 var frame_items = []
 var fade = false
 var game_over = false
@@ -74,13 +76,13 @@ func count_items_in_frame():
 				butterflyCount += 1
 			elif item.type == Global.FrameTypes.FLOWER:
 				flowerCount += 1
-		earnings.text = "+" + str(butterflyCount * 4 + flowerCount) + " dollars!\n"
+		earnings.text = "+" + str(int(ceil(butterflyCount * butterfly_value)) + flowerCount * flower_value) + " dollars!\n"
 	if butterflyCount > 0:
-		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(butterflyCount * 4) + ")\n")
+		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(int(ceil(butterflyCount * butterfly_value))) + ")\n")
 	if flowerCount > 0:
-		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")")
+		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount * flower_value) + ")")
 	timer.start()
-	return butterflyCount * 4 + flowerCount
+	return int(ceil(butterflyCount * butterfly_value) + flowerCount * flower_value)
 	
 # spawns flowers in random location in certain range from origin
 func spawn_flower(number_of_flowers):
