@@ -18,11 +18,11 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(GAME)
 	Global.film_amount = 1
 	Global.moneys = 0
-	Global.flower_spawn_count = 30
-	Global.butterfly_spawn_count = randi() % 2 + 6
+	Global.flower_spawn_count = 35
+	Global.butterfly_spawn_count = 9
 	Global.film_cost = 2.99
-	Global.bfly_cost = 10
-	Global.fert_cost = 5
+	Global.bfly_cost = 15
+	Global.fert_cost = 10
 
 
 func _on_tutorial_pressed() -> void:
