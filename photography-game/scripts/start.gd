@@ -18,8 +18,8 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(GAME)
 	Global.film_amount = 1
 	Global.moneys = 0
-	Global.flower_spawn_count = 35
-	Global.butterfly_spawn_count = 9
+	Global.flower_spawn_count = 70
+	Global.butterfly_spawn_count = 15
 	Global.film_cost = 2.99
 	Global.bfly_cost = 15
 	Global.fert_cost = 10
