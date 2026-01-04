@@ -20,7 +20,6 @@ script/source = "extends CanvasLayer
 
 [node name="Game Manager" type="Node2D" parent="."]
 script = ExtResource("1_lnu2h")
-debug = true
 
 [node name="frame" type="Sprite2D" parent="."]
 z_index = 100

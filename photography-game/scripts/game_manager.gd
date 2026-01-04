@@ -3,7 +3,7 @@ extends Node2D
 @onready var earnings: RichTextLabel = $"../UI/earnings"
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@export var debug = true
+@export var debug = false
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
@@ -23,8 +23,8 @@ func _ready() -> void:
 	Audio.play_cont_music()
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
-	#spawn_flower(Global.flower_spawn_count)
-	#spawn_butterfly(Global.butterfly_spawn_count)
+	spawn_flower(Global.flower_spawn_count)
+	spawn_butterfly(Global.butterfly_spawn_count)
 	spawn_beetle(Global.butterfly_spawn_count)
 	
 func _process(delta: float) -> void:
@@ -87,7 +87,7 @@ func count_items_in_frame():
 	if butterflyCount > 0:
 		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(int(ceil(butterflyCount * butterfly_value))) + ")\n")
 	if flowerCount > 0:
-		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")")
+		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")\n")
 	if beetleCount > 0:
 		earnings.append_text(str(beetleCount) + " beetle ($-" + str(beetleCount*2) + ")")
 	timer.start()
