@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfdvgn1lk6lj3"]
+
+[ext_resource type="Script" path="res://scenes/beetle.gd" id="1_g2qrh"]
+[ext_resource type="Texture2D" path="res://scenes/beetle.jpeg" id="2_g2qrh"]
+
+[node name="beetle" type="Node2D"]
+script = ExtResource("1_g2qrh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+rotation = 1.5708
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("2_g2qrh")
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_timer_timeout"]
