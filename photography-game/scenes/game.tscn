@@ -24,7 +24,7 @@ script = ExtResource("1_lnu2h")
 z_index = 100
 position = Vector2(-1, 2)
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_lbhrr")
+texture = ExtResource("2_vtaks")
 script = ExtResource("3_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="."]
