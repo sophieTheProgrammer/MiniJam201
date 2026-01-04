@@ -2,6 +2,8 @@ extends Node2D
 
 
 const GAME = preload("res://scenes/game.tscn")
+const TUTORIAL = preload("res://scenes/tutorial.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,4 +27,5 @@ func _on_start_pressed() -> void:
 
 func _on_tutorial_pressed() -> void:
 	print("switching to tutorial")
+	get_tree().change_scene_to_packed(TUTORIAL)
 	pass # Replace with function body.
