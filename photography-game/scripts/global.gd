@@ -1,13 +1,14 @@
 extends Node
 enum FrameTypes{
 	BUTTERFLY,
-	FLOWER
+	FLOWER,
+	BEETLE
 }
 
 var x_viewport_length
 var y_viewport_length
-var film_amount = 1
-var moneys = 0
+var film_amount = 100
+var moneys = 100
 var flower_spawn_count = 30
 var butterfly_spawn_count = randi() % 2 + 6
 var film_cost = 2.99
