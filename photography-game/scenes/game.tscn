@@ -85,7 +85,7 @@ text = "+10 dollars!
 horizontal_alignment = 2
 
 [node name="Timer" type="Timer" parent="UI/earnings"]
-wait_time = 1.974
+wait_time = 5.0
 
 [node name="gameovertimer" type="Timer" parent="."]
 
