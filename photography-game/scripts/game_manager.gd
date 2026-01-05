@@ -89,7 +89,10 @@ func count_items_in_frame():
 	if flowerCount > 0:
 		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")\n")
 	if beetleCount > 0:
-		earnings.append_text(str(beetleCount) + " beetle ($-" + str(beetleCount*2) + ")")
+		var temp = earnings
+		earnings.append_text(str(beetleCount) + " beetle ")
+		earnings.push_color(Color.RED)
+		earnings.add_text("($-" + str(beetleCount*2) + ")")
 	timer.start()
 	return money
 	
@@ -101,6 +104,7 @@ func spawn_flower(number_of_flowers):
 	for i in range(number_of_flowers):
 		var curr = flowerFab.instantiate()
 		curr.name = "flower"
+		
 		
 		curr.position.x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
 		curr.position.y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
