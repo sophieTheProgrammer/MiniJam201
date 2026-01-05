@@ -17,8 +17,7 @@ func _process(delta: float) -> void:
 		sprite.scale *= 0.95
 		if (sprite.scale <= Vector2(0.005, 0.005)):
 			sprite.scale = Vector2(0.031/7.91782191212, 0.031/7.91782191212)
-			sprite.translate(Vector2((randi() % Global.x_viewport_length) - Global.x_viewport_length/2, (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
-	))
+			self.translate(Vector2((randi() % Global.x_viewport_length) - Global.x_viewport_length/2, (randi() % Global.y_viewport_length) - Global.y_viewport_length/2))
 			Despawn = false
 			Respawn = true
 	if (Respawn):
