@@ -50,6 +50,8 @@ func _process(delta: float) -> void:
 				Global.moneys += max(count_items_in_frame(), 0)
 			else:
 				nono.play()
+		elif (game_over == true):
+			get_tree().change_scene_to_packed(game_over_scene)
 		else:
 			error.play()
 
