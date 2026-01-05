@@ -31,6 +31,6 @@ func reset_var():
 	Global.flower_spawn_count = 70
 	Global.butterfly_spawn_count = 15
 	Global.beetle_spawn_count = 15
-	Global.film_cost = 2.99
-	Global.bfly_cost = 20
-	Global.fert_cost = 5
+	Global.film_cost = 3.99
+	Global.bfly_cost = 30
+	Global.fert_cost = 20
