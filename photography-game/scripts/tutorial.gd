@@ -59,14 +59,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_released("click"):
 		if current_step == 10:
-			Global.film_amount = 1
-			Global.moneys = 0
-			Global.flower_spawn_count = 70
-			Global.butterfly_spawn_count = 15
-			Global.beetle_spawn_count = 15
-			Global.film_cost = 2.99
-			Global.bfly_cost = 20
-			Global.fert_cost = 5
+			Global.reset_var()
 			get_tree().change_scene_to_packed(GAME)
 		else:
 			loadTextFromIndex(current_step)
