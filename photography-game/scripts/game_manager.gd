@@ -30,7 +30,7 @@ func _ready() -> void:
 	Global.y_viewport_length = camera_2d.limit_bottom + abs(camera_2d.limit_top)
 	spawn_flower(Global.flower_spawn_count)
 	spawn_butterfly(Global.butterfly_spawn_count)
-	spawn_beetle(Global.butterfly_spawn_count)
+	spawn_beetle(Global.beetle_spawn_count)
 	
 func _process(delta: float) -> void:
 	if fade:
@@ -47,8 +47,7 @@ func _process(delta: float) -> void:
 				#can_capture = false
 				click.play()
 				Global.film_amount -= 1
-				Global.moneys += count_items_in_frame()
-				Global.moneys = max(Global.moneys, 0)
+				Global.moneys += max(count_items_in_frame(), 0)
 			else:
 				nono.play()
 		else:
@@ -91,7 +90,10 @@ func count_items_in_frame():
 			elif item.type == Global.FrameTypes.BEETLE:
 				beetleCount += 1
 		money = int(ceil(butterflyCount * BUTTERFLY_VALUE)) + flowerCount * FLOWER_VALUE + beetleCount * BEETLE_VALUE
-		earnings.text = "Earned " + str(money) + " dollars!\n"
+		if (money >= 0):
+			earnings.text = "Earned " + str(money) + " dollars!\n"
+		else:
+			earnings.text = "No one wants to\n buy that picture!\n"
 	if butterflyCount > 0:
 		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(int(ceil(butterflyCount * BUTTERFLY_VALUE))) + ")\n")
 	if flowerCount > 0:

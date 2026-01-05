@@ -5,7 +5,7 @@ extends Node2D
 var rand_x = position.x
 var rand_y = position.y
 var min_wait_time = 1
-var max_wait_time = 5 - min_wait_time
+var max_wait_time = 3 - min_wait_time
 var velocity = Vector2.ZERO
 var min_speed = 2
 var max_speed = 4 - min_speed
@@ -14,9 +14,13 @@ const ACCELERATION = 4
 const type = Global.FrameTypes.BEETLE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	move_timer.start()
+	rand_x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
+	rand_y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
+	speed = (randi() % max_speed) + min_speed
+	move_timer.wait_time = (randi() % max_wait_time) + min_wait_time
 	look_at(Vector2(rand_x, rand_y))
 	self.rotate(PI/2)
+	move_timer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = position.move_toward(Vector2(rand_x, rand_y), speed * 100 * delta)
