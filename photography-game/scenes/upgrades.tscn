@@ -1,15 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://do21cc2iohnka"]
+[gd_scene load_steps=18 format=3 uid="uid://do21cc2iohnka"]
 
 [ext_resource type="AudioStream" uid="uid://cwajr5uh3w3sf" path="res://resources/Error Notification Sound (1).mp3" id="1_5wf0v"]
-[ext_resource type="Texture2D" uid="uid://b1px8vflcu0tu" path="res://resources/Screenshot 2026-01-03 at 4.16.56 PM.png" id="1_h5bgf"]
 [ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="1_js5n2"]
+[ext_resource type="Texture2D" uid="uid://bjdmp7qybqe0s" path="res://handdrawn/shop.png" id="2_3vdl0"]
 [ext_resource type="FontFile" uid="uid://bnq8xomohvdhy" path="res://resources/Bungee-Regular.ttf" id="2_ef3hr"]
 [ext_resource type="Script" uid="uid://bphhx1j8sys1a" path="res://scripts/shop.gd" id="2_vi17a"]
 [ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="3_vi17a"]
 [ext_resource type="Texture2D" uid="uid://dmunrrl4wk3bj" path="res://handdrawn/shop icons/film.png" id="5_5wf0v"]
-[ext_resource type="Texture2D" uid="uid://b8panb8jhbicp" path="res://handdrawn/butterfly/Untitled_Artwork-1.png" id="7_deu2k"]
-[ext_resource type="Texture2D" uid="uid://yqbry55mfbjm" path="res://handdrawn/fertizler.png" id="8_5wf0v"]
 [ext_resource type="PackedScene" uid="uid://dbodo04ow2lyw" path="res://scenes/stats.tscn" id="8_h5bgf"]
+[ext_resource type="Texture2D" uid="uid://dxxjfhdckcr3u" path="res://handdrawn/shop icons/plantyum.png" id="9_deu2k"]
+[ext_resource type="Texture2D" uid="uid://vs0wx140dudr" path="res://handdrawn/shop icons/Untitled_Artwork.png" id="10_mp7ln"]
+[ext_resource type="Texture2D" uid="uid://r4tlbfdr0cy1" path="res://svg/Button/Rect/Fill/Default-1.svg" id="11_deu2k"]
 [ext_resource type="AudioStream" uid="uid://cgvmaf1438tl" path="res://resources/buy_1.mp3" id="12_3vdl0"]
 
 [sub_resource type="Theme" id="Theme_u8xvj"]
@@ -33,32 +34,12 @@ volume_db = 15.0
 [node name="ui layer" type="CanvasLayer" parent="."]
 
 [node name="shop" type="Sprite2D" parent="ui layer"]
-position = Vector2(583, 293)
-scale = Vector2(5.80373, 4.18394)
-texture = ExtResource("1_h5bgf")
+position = Vector2(604.739, 326.125)
+scale = Vector2(0.316999, 0.316999)
+texture = ExtResource("2_3vdl0")
 script = ExtResource("2_vi17a")
 
 [node name="stats" parent="ui layer" instance=ExtResource("8_h5bgf")]
-
-[node name="title" type="Sprite2D" parent="ui layer"]
-position = Vector2(583, 73)
-scale = Vector2(0.495833, 2.75)
-texture = ExtResource("1_js5n2")
-
-[node name="shop" type="RichTextLabel" parent="ui layer/title"]
-anchors_preset = -1
-anchor_left = 0.109315
-anchor_top = -0.00284064
-anchor_right = 0.109315
-offset_left = -276.37
-offset_top = -22.9091
-offset_right = -67.3702
-offset_bottom = 38.0
-scale = Vector2(3.725, 0.848)
-theme = SubResource("Theme_u8xvj")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "shop"
-metadata/_edit_use_anchors_ = true
 
 [node name="stats2" parent="ui layer" instance=ExtResource("8_h5bgf")]
 
@@ -83,17 +64,24 @@ metadata/_edit_use_anchors_ = true
 [node name="Film Image" type="Sprite2D" parent="ui layer/film upgrade"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(184, 303.918)
+position = Vector2(144, 339)
 rotation = -0.942478
 scale = Vector2(0.257036, 0.311267)
 texture = ExtResource("5_5wf0v")
 
+[node name="Film Image" type="Sprite2D" parent="ui layer/film upgrade/Film Image"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(299.489, 387.14)
+rotation = -3.0997
+scale = Vector2(1.0007, 0.893946)
+texture = ExtResource("5_5wf0v")
+
 [node name="film btn" type="Button" parent="ui layer/film upgrade"]
-offset_left = 64.0
-offset_top = 544.0
-offset_right = 288.0
-offset_bottom = 642.0
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+offset_left = 50.0
+offset_top = 555.0
+offset_right = 274.0
+offset_bottom = 653.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -107,58 +95,42 @@ icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="butterlfy label" type="Sprite2D" parent="ui layer/film upgrade"]
-position = Vector2(192.333, 492.5)
+position = Vector2(182, 515)
 scale = Vector2(0.602778, 2.71875)
 texture = ExtResource("1_js5n2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui layer/film upgrade/butterlfy label"]
 anchors_preset = -1
-anchor_left = 0.0135125
-anchor_top = 0.046425
-anchor_right = 0.130179
-anchor_bottom = 1.70267
-offset_left = -325.564
-offset_top = -17.1178
-offset_right = 155.436
-offset_bottom = 43.8822
+anchor_left = 0.0119447
+anchor_top = 0.122215
+anchor_right = -0.048472
+anchor_bottom = 1.62222
+offset_left = -293.733
+offset_top = -18.9109
+offset_right = 187.267
+offset_bottom = 42.0891
 scale = Vector2(1.23, 0.34)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 69
-text = "Buy Film"
+text = "2x Film"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="fertilizer" type="Node2D" parent="ui layer"]
 position = Vector2(712, -2)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ui layer/fertilizer"]
-anchors_preset = -1
-anchor_left = -0.199852
-anchor_top = -0.134201
-anchor_right = -0.199852
-anchor_bottom = -0.134201
-offset_left = 6.0
-offset_top = 393.0
-offset_right = 491.002
-offset_bottom = 593.0
-scale = Vector2(0.704405, 0.970474)
-theme = SubResource("Theme_u8xvj")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "(more flowers)"
-metadata/_edit_use_anchors_ = true
-
 [node name="fert label" type="Sprite2D" parent="ui layer/fertilizer"]
-position = Vector2(129, 487)
-scale = Vector2(0.534722, 2.1875)
+position = Vector2(181, 513)
+scale = Vector2(0.397917, 1.59375)
 texture = ExtResource("1_js5n2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ui layer/fertilizer/fert label"]
 anchors_preset = -1
-anchor_left = -0.00108388
-anchor_top = -0.00933397
-anchor_right = 0.630166
-anchor_bottom = 0.021916
+anchor_left = -0.00657708
+anchor_top = -0.00665626
+anchor_right = 0.708006
+anchor_bottom = 0.0245937
 offset_left = -195.843
 offset_top = -14.787
 offset_right = 285.157
@@ -170,12 +142,10 @@ text = "fertilizer"
 metadata/_edit_use_anchors_ = true
 
 [node name="fert btn" type="Button" parent="ui layer/fertilizer"]
-offset_left = 13.0
-offset_top = 546.0
-offset_right = 237.0
-offset_bottom = 644.0
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+offset_left = 43.0
+offset_top = 557.0
+offset_right = 267.0
+offset_bottom = 655.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -189,26 +159,23 @@ icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Fertizler" type="Sprite2D" parent="ui layer/fertilizer"]
-position = Vector2(130, 259)
+position = Vector2(185, 344)
 scale = Vector2(0.112935, 0.112935)
-texture = ExtResource("8_5wf0v")
+texture = ExtResource("9_deu2k")
 
 [node name="one with the butterflies upgrade" type="Node2D" parent="ui layer"]
 position = Vector2(356, -1)
 
 [node name="butterlfy label" type="Sprite2D" parent="ui layer/one with the butterflies upgrade"]
-position = Vector2(155, 475)
-scale = Vector2(0.602778, 2.71875)
+position = Vector2(168.667, 507.75)
+scale = Vector2(0.534722, 2.29687)
 texture = ExtResource("1_js5n2")
 
 [node name="butterfly btn" type="Button" parent="ui layer/one with the butterflies upgrade"]
-offset_left = 47.0
-offset_top = 545.0
-offset_right = 271.0
-offset_bottom = 643.0
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+offset_left = 64.0
+offset_top = 555.0
+offset_right = 288.0
+offset_bottom = 653.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -221,34 +188,28 @@ icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="butterflyphoto" type="Sprite2D" parent="ui layer/one with the butterflies upgrade"]
-position = Vector2(164, 261)
-scale = Vector2(0.136832, 0.134797)
-texture = ExtResource("7_deu2k")
+position = Vector2(221, 343)
+scale = Vector2(0.107813, 0.104813)
+texture = ExtResource("10_mp7ln")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ui layer"]
 anchors_preset = -1
-anchor_left = -0.143427
-anchor_top = -0.180498
-anchor_right = -0.142
-anchor_bottom = -0.180498
-offset_left = 507.228
-offset_top = 537.963
-offset_right = 990.584
-offset_bottom = 660.963
+anchor_left = -0.207663
+anchor_top = -0.34562
+anchor_right = -0.207663
+anchor_bottom = -0.34562
+offset_left = 632.228
+offset_top = 705.962
+offset_right = 1005.23
+offset_bottom = 764.962
 scale = Vector2(0.704405, 0.970474)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "more 
-butterflies"
+text = "Milkweed"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Node" type="Node" parent="ui layer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ui layer/Node"]
-position = Vector2(1044.5, 601)
-scale = Vector2(0.75, 1.02381)
-texture = ExtResource("3_vi17a")
 
 [node name="exit shop" type="Button" parent="ui layer/Node"]
 anchors_preset = -1
@@ -256,14 +217,15 @@ anchor_left = -0.0173611
 anchor_top = -0.00925926
 anchor_right = -0.0173611
 anchor_bottom = -0.00925926
-offset_left = 951.0
-offset_top = 553.0
-offset_right = 1175.0
-offset_bottom = 651.0
+offset_left = 1016.0
+offset_top = 301.0
+offset_right = 1240.0
+offset_bottom = 399.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 theme_override_styles/focus = SubResource("StyleBoxEmpty_deu2k")
 text = "Exit"
+icon = ExtResource("11_deu2k")
 flat = true
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
