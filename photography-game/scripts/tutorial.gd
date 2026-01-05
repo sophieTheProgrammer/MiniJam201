@@ -51,7 +51,7 @@ var tutorial_info = [
 	}
 ]
 func _ready() -> void:
-	current_step = 0
+	current_step = 1
 	loadTextFromIndex(0)
 	loadImageFromIndex(0)
 
