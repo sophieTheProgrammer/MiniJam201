@@ -27,7 +27,7 @@ window/stretch/mode="viewport"
 
 [gui]
 
-theme/custom_font="uid://bnq8xomohvdhy"
+theme/custom_font="uid://ji553mgk60a4"
 
 [input]
 
@@ -70,4 +70,5 @@ down_arrow={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/webp_compression/lossless_compression_factor=0.0
 environment/defaults/default_clear_color=Color(0.456079, 0.874039, 0.612734, 1)
