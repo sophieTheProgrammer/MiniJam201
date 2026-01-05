@@ -192,7 +192,7 @@ texture = ExtResource("8_5wf0v")
 position = Vector2(356, -1)
 
 [node name="butterlfy label" type="Sprite2D" parent="ui layer/one with the butterflies upgrade"]
-position = Vector2(157.333, 500.5)
+position = Vector2(155, 475)
 scale = Vector2(0.602778, 2.71875)
 texture = ExtResource("1_js5n2")
 
@@ -219,12 +219,12 @@ texture = ExtResource("7_deu2k")
 anchors_preset = -1
 anchor_left = -0.143427
 anchor_top = -0.180498
-anchor_right = -0.143427
-anchor_bottom = -0.175868
-offset_left = 506.228
-offset_top = 560.963
-offset_right = 991.228
-offset_bottom = 760.962
+anchor_right = -0.142
+anchor_bottom = -0.180498
+offset_left = 507.228
+offset_top = 537.963
+offset_right = 990.584
+offset_bottom = 660.963
 scale = Vector2(0.704405, 0.970474)
 theme = SubResource("Theme_u8xvj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)

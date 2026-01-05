@@ -5,7 +5,7 @@ extends Node2D
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
 @onready var nono: AudioStreamPlayer2D = $"../audio/camera no no"
-@export var debug = true
+@export var debug = false
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
