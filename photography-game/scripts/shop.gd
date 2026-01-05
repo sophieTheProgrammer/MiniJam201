@@ -5,7 +5,9 @@ var game_scene:PackedScene = load("res://scenes/game.tscn")
 @onready var fert_btn: Button = $"../fertilizer/fert btn"
 @onready var buy_sound: AudioStreamPlayer2D = $"../../Buy Sound"
 @onready var exit_shop: Button = $"ui layer/Node/exit shop"
-
+@onready var game_over_timer: Timer = $"../../gameovertimer"
+var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
+var game_over = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,6 +17,11 @@ func _process(delta: float) -> void:
 	film_btn.text = "$" + str(int(floor(Global.film_cost)))
 	bfly_btn.text = "$" + str(int(floor(Global.bfly_cost)))
 	fert_btn.text = "$" + str(int(floor(Global.fert_cost)))
+	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
+		game_over_timer.start()
+		game_over = true
+
+
 
 func _on_film_btn_pressed() -> void:
 	if (Global.moneys >= int(floor(Global.film_cost))):
@@ -56,3 +63,7 @@ func _on_fert_btn_pressed() -> void:
 
 func _on_exit_shop_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene)
+
+
+func _on_gameovertimer_timeout() -> void:
+	get_tree().change_scene_to_packed(game_over_scene)
