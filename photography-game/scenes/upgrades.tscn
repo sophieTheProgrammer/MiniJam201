@@ -213,7 +213,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="exit shop" type="Button" parent="ui layer/Node"]
 anchors_preset = -1
-anchor_left = -0.0173611
+anchor_left = -0.0347222
 anchor_top = -0.00925926
 anchor_right = -0.0347222
 anchor_bottom = -0.00925926
