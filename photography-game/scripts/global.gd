@@ -23,3 +23,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func reset_var():
+	Global.film_amount = 1
+	Global.moneys = 0
+	Global.flower_spawn_count = 70
+	Global.butterfly_spawn_count = 15
+	Global.beetle_spawn_count = 15
+	Global.film_cost = 2.99
+	Global.bfly_cost = 20
+	Global.fert_cost = 5
