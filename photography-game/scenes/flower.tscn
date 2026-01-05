@@ -13,6 +13,4 @@ texture = ExtResource("2_yoh7s")
 [node name="Despawn Timer" type="Timer" parent="."]
 wait_time = 0.001
 
-[node name="Respawn Timer" type="Timer" parent="."]
-
 [connection signal="timeout" from="Despawn Timer" to="." method="_on_despawn_timer_timeout"]

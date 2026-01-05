@@ -1,9 +1,11 @@
 extends Node2D
 @onready var timer: Timer = $"../UI/earnings/Timer"
 @onready var earnings: RichTextLabel = $"../UI/earnings"
+@onready var flash_rect: ColorRect = $"../Flash Rect"
 @onready var click: AudioStreamPlayer2D = $"../audio/click"
 @onready var error: AudioStreamPlayer2D = $"../audio/error"
-@export var debug = false
+@onready var nono: AudioStreamPlayer2D = $"../audio/camera no no"
+@export var debug = true
 @onready var shop_btn: Button = $"../UI/shop btn"
 const flowerFab = preload("res://scenes/flower.tscn")
 const butterflyFab = preload("res://scenes/butterfly.tscn")
@@ -13,10 +15,13 @@ var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var frame: Sprite2D = $"../frame"
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var game_over_timer: Timer = $"../gameovertimer"
+@onready var capture_timer: Timer = $"../frame/Capture Cooldown"
 
+var can_capture = true
 var game_over = false
-var butterfly_value = 2.1111
-var flower_value = 1
+const BUTTERFLY_VALUE = 2.1111
+const FLOWER_VALUE = 1
+const BEETLE_VALUE = -2
 var frame_items = []
 var fade = false
 func _ready() -> void:
@@ -30,19 +35,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if fade:
 		earnings.modulate.a -= .01
-
+	if flash_rect.modulate.a >= 0:
+		flash_rect.modulate.a -= .01
 	if Global.moneys < floor(Global.film_cost) and Global.film_amount <= 0 and !game_over:
 		game_over_timer.start()
 		game_over = true
 	if Input.is_action_just_released("click"):
-		if Global.film_amount > 0:
-			click.play()
+		if (Global.film_amount >= 1):
+			if (can_capture):
+				#capture_timer.start()
+				#can_capture = false
+				click.play()
+				Global.film_amount -= 1
+				Global.moneys += count_items_in_frame()
+				Global.moneys = max(Global.moneys, 0)
+			else:
+				nono.play()
 		else:
 			error.play()
-		if (Global.film_amount >= 1):
-			Global.film_amount -= 1
-			Global.moneys += count_items_in_frame()
-			Global.moneys = max(Global.moneys, 0)
 
 
 func count_items_in_frame():
@@ -58,13 +68,11 @@ func count_items_in_frame():
 	var money
 	var scale = frame.transform.get_scale().x
 	var mouseRect = Rect2(mousePos.x - (frame.texture.get_width()*scale)/2, mousePos.y - (frame.texture.get_height()*scale)/2, frame.texture.get_width()*scale, frame.texture.get_height()*scale)
-	if debug:
-		var mr = ColorRect.new()
-		mr.position = Vector2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y- (frame.texture.get_height()*scale)/2)
-		mr.size = Vector2(frame.texture.get_width()*frame.transform.get_scale().x, frame.texture.get_height()*frame.transform.get_scale().x)
-		mr.color = Color(255,0,0)
-		mr.modulate.a = .1
-		add_child(mr)
+	flash_rect.modulate.a = 1
+	flash_rect.position = Vector2(mousePos.x- (frame.texture.get_width()*scale)/2, mousePos.y- (frame.texture.get_height()*scale)/2)
+	flash_rect.size = Vector2(frame.texture.get_width()*frame.transform.get_scale().x, frame.texture.get_height()*frame.transform.get_scale().x)
+	flash_rect.color = Color(255,255,255)
+	flash_rect.modulate.a = 0.9
 	for item in frame_items:
 		var tex = item.sprite
 		var itemRect = Rect2(item.position.x - tex.texture.get_width()*tex.transform.get_scale().x/2, item.position.y - tex.texture.get_height()*tex.transform.get_scale().y/2, tex.texture.get_width()*tex.transform.get_scale().x, tex.texture.get_height()*tex.transform.get_scale().y)
@@ -81,15 +89,15 @@ func count_items_in_frame():
 			elif item.type == Global.FrameTypes.FLOWER:
 				flowerCount += 1
 			elif item.type == Global.FrameTypes.BEETLE:
-				beetleCount+=1
-		money = butterflyCount * 4 + flowerCount - (beetleCount*2)
+				beetleCount += 1
+		money = int(ceil(butterflyCount * BUTTERFLY_VALUE)) + flowerCount * FLOWER_VALUE + beetleCount * BEETLE_VALUE
 		earnings.text = "Earned " + str(money) + " dollars!\n"
 	if butterflyCount > 0:
-		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(int(ceil(butterflyCount * butterfly_value))) + ")\n")
+		earnings.append_text(str(butterflyCount) + " butterflies ($" + str(int(ceil(butterflyCount * BUTTERFLY_VALUE))) + ")\n")
 	if flowerCount > 0:
-		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount) + ")\n")
+		earnings.append_text(str(flowerCount) + " flowers ($" + str(flowerCount * FLOWER_VALUE) + ")\n")
 	if beetleCount > 0:
-		earnings.append_text(str(beetleCount) + " beetle ($-" + str(beetleCount*2) + ")")
+		earnings.append_text(str(beetleCount) + " beetle ($" + str(beetleCount * BEETLE_VALUE) + ")")
 	timer.start()
 	return money
 	
@@ -143,3 +151,7 @@ func _on_timer_timeout() -> void:
 
 func _on_gameovertimer_timeout() -> void:
 	get_tree().change_scene_to_packed(game_over_scene)
+
+
+func _on_capture_cooldown_timeout() -> void:
+	can_capture = true
