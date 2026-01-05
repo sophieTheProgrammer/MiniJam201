@@ -25,18 +25,18 @@ offset_right = 1152.0
 offset_bottom = 173.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 85
 text = "placeholder"
 horizontal_alignment = 1
 
 [node name="clickToContinue" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = -301.0
-offset_top = 607.0
-offset_right = 545.0
-offset_bottom = 688.0
+offset_left = 580.0
+offset_top = 593.0
+offset_right = 1426.0
+offset_bottom = 674.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 50
 text = "click to continue"
 horizontal_alignment = 1
 
