@@ -7,17 +7,17 @@ enum FrameTypes{
 
 var x_viewport_length
 var y_viewport_length
-var film_amount = 1
-var moneys = 0
-var flower_spawn_count = 70
-var butterfly_spawn_count = 15
-var beetle_spawn_count = 15
-var film_cost = 2.99
-var bfly_cost = 20
-var fert_cost = 5
+var film_amount
+var moneys
+var flower_spawn_count
+var butterfly_spawn_count
+var beetle_spawn_count
+var film_cost
+var bfly_cost
+var fert_cost
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	reset_var()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
