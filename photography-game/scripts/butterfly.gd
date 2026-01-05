@@ -2,7 +2,6 @@ extends Node2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var anisprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var move_timer: Timer = $MoveTimer
-
 var rand_x = position.x
 var rand_y = position.y
 var min_wait_time = 1
