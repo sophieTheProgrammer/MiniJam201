@@ -7,10 +7,11 @@ enum FrameTypes{
 
 var x_viewport_length
 var y_viewport_length
-var film_amount = 100
+var film_amount = 1
 var moneys = 0
 var flower_spawn_count = 70
 var butterfly_spawn_count = 15
+var beetle_spawn_count = 15
 var film_cost = 2.99
 var bfly_cost = 20
 var fert_cost = 5
