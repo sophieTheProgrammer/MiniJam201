@@ -25,8 +25,12 @@ func _process(delta: float) -> void:
 func shop_text_colors(btn, cost):
 	if (Global.moneys >= int(floor(cost))):
 		btn.add_theme_color_override("font_color",Color.FOREST_GREEN)
+		btn.add_theme_color_override("font_focus_color",Color.FOREST_GREEN)
+		btn.add_theme_color_override("font_hover_pressed_color",Color.FOREST_GREEN)
 	else:
 		btn.add_theme_color_override("font_color",Color.ORANGE_RED)
+		btn.add_theme_color_override("font_focus_color",Color.ORANGE_RED)
+		btn.add_theme_color_override("font_hover_pressed_color",Color.ORANGE_RED)
 		
 	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
 		game_over_timer.start()
