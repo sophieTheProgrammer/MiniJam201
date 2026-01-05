@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://do21cc2iohnka"]
+[gd_scene load_steps=17 format=3 uid="uid://do21cc2iohnka"]
 
 [ext_resource type="AudioStream" uid="uid://cwajr5uh3w3sf" path="res://resources/Error Notification Sound (1).mp3" id="1_5wf0v"]
 [ext_resource type="Texture2D" uid="uid://b1px8vflcu0tu" path="res://resources/Screenshot 2026-01-03 at 4.16.56 PM.png" id="1_h5bgf"]

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	shop_text_colors(fert_btn, Global.fert_cost)
 func shop_text_colors(btn, cost):
 	if (Global.moneys >= int(floor(cost))):
-		btn.add_theme_color_override("font_color",Color.MEDIUM_SPRING_GREEN)
+		btn.add_theme_color_override("font_color",Color.FOREST_GREEN)
 	else:
 		btn.add_theme_color_override("font_color",Color.ORANGE_RED)
 		
