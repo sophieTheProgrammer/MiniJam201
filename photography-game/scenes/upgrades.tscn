@@ -238,7 +238,7 @@ stream = ExtResource("12_3vdl0")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="gameovertimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 
 [connection signal="pressed" from="ui layer/film upgrade/film btn" to="ui layer/shop" method="_on_film_btn_pressed"]
 [connection signal="pressed" from="ui layer/fertilizer/fert btn" to="ui layer/shop" method="_on_fert_btn_pressed"]
