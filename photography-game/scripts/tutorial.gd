@@ -26,7 +26,7 @@ var tutorial_info = [
 		"image_path":"res://handdrawn/tutorial/3.png"
 	},
 	{
-		"text":"they love flowers and butterflys",
+		"text":"they love flowers and butterflies",
 		"image_path":"res://handdrawn/tutorial/4.png"
 	},
 	{
@@ -34,7 +34,7 @@ var tutorial_info = [
 		"image_path":"res://handdrawn/tutorial/5.png"
 	},
 	{
-		"text":"use arrow keys to find your best shot, and click to shoot",
+		"text":"use WASD to find your best shot, and click to shoot",
 		"image_path":"res://handdrawn/tutorial/6.png"
 	},
 	{

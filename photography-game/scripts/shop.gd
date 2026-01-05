@@ -7,6 +7,9 @@ var game_scene:PackedScene = load("res://scenes/game.tscn")
 @onready var exit_shop: Button = $"ui layer/Node/exit shop"
 @onready var error: AudioStreamPlayer2D = $"../../error"
 
+@onready var game_over_timer: Timer = $"../../gameovertimer"
+var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
+var game_over = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,6 +28,12 @@ func shop_text_colors(btn, cost):
 	else:
 		btn.add_theme_color_override("font_color",Color.ORANGE_RED)
 		
+	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
+		game_over_timer.start()
+		game_over = true
+
+
+
 func _on_film_btn_pressed() -> void:
 	if (Global.moneys >= int(floor(Global.film_cost))):
 		Global.film_amount += 2
@@ -73,3 +82,7 @@ func _on_fert_btn_pressed() -> void:
 
 func _on_exit_shop_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene)
+
+
+func _on_gameovertimer_timeout() -> void:
+	get_tree().change_scene_to_packed(game_over_scene)

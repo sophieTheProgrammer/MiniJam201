@@ -14,11 +14,11 @@ var game_over_scene:PackedScene = load("res://scenes/game_over.tscn")
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var game_over_timer: Timer = $"../gameovertimer"
 
+var game_over = false
 var butterfly_value = 2.1111
 var flower_value = 1
 var frame_items = []
 var fade = false
-var game_over = false
 func _ready() -> void:
 	Audio.play_cont_music()
 	Global.x_viewport_length = camera_2d.limit_right + abs(camera_2d.limit_left)
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if fade:
 		earnings.modulate.a -= .01
 
-	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
+	if Global.moneys < floor(Global.film_cost) and Global.film_amount <= 0 and !game_over:
 		game_over_timer.start()
 		game_over = true
 	if Input.is_action_just_released("click"):
