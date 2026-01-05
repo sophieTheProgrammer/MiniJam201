@@ -57,6 +57,14 @@ func _process(delta: float) -> void:
 		current_step += 1
 		if current_step == 8:
 			print("current step is 9")
+			Global.film_amount = 1
+			Global.moneys = 0
+			Global.flower_spawn_count = 70
+			Global.butterfly_spawn_count = 15
+			Global.beetle_spawn_count = 15
+			Global.film_cost = 2.99
+			Global.bfly_cost = 20
+			Global.fert_cost = 5
 			get_tree().change_scene_to_packed(GAME)
 
 		loadTextFromIndex(current_step)

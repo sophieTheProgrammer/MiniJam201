@@ -20,12 +20,11 @@ func _on_start_pressed() -> void:
 	Global.moneys = 0
 	Global.flower_spawn_count = 70
 	Global.butterfly_spawn_count = 15
+	Global.beetle_spawn_count = 15
 	Global.film_cost = 2.99
-	Global.bfly_cost = 15
-	Global.fert_cost = 10
+	Global.bfly_cost = 20
+	Global.fert_cost = 5
 
 
 func _on_tutorial_pressed() -> void:
-	print("switching to tutorial")
 	get_tree().change_scene_to_packed(TUTORIAL)
-	pass # Replace with function body.

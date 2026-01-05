@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://i3j0gqiwrft6"]
 
-[ext_resource type="Script" path="res://beetle.gd" id="1_g2qrh"]
+[ext_resource type="Script" uid="uid://bjjwiaft853yr" path="res://scripts/beetle.gd" id="1_g2qrh"]
 [ext_resource type="Texture2D" uid="uid://jy30cb03xgiu" path="res://handdrawn/beetle.png" id="2_g2qrh"]
 
 [node name="beetle" type="Node2D"]
