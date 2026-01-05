@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobqiy0fk0slk"
-path="res://.godot/imported/beetle.jpeg-eb92616506435d3c79a24b300ac9e339.ctex"
+uid="uid://h6ap7r8u66nx"
+path="res://.godot/imported/gameover.png-725022757136786dd9c241a10e629eb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://beetle.jpeg"
-dest_files=["res://.godot/imported/beetle.jpeg-eb92616506435d3c79a24b300ac9e339.ctex"]
+source_file="res://handdrawn/gameover.png"
+dest_files=["res://.godot/imported/gameover.png-725022757136786dd9c241a10e629eb8.ctex"]
 
 [params]
 

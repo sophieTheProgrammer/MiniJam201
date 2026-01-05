@@ -1,41 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://uoot132co4qu"]
 
 [ext_resource type="Script" uid="uid://c3joeoi7da415" path="res://game_over.gd" id="1_tbwuq"]
-[ext_resource type="Texture2D" uid="uid://keikcaca0ay2" path="res://resources/png/Bar/Line.png" id="2_racf3"]
 [ext_resource type="Texture2D" uid="uid://c36eouh02hm7x" path="res://resources/png/Button/Rect/Fill/Default.png" id="3_7m3ot"]
+[ext_resource type="Texture2D" uid="uid://h6ap7r8u66nx" path="res://handdrawn/gameover.png" id="4_racf3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3hpu"]
 
 [node name="Game Over" type="Node2D"]
 script = ExtResource("1_tbwuq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -25.0
-offset_top = -10.0
-offset_right = 1164.0
-offset_bottom = 670.0
-color = Color(0.697333, 0.63922, 0.908266, 1)
-
-[node name="titel" type="Sprite2D" parent="."]
-position = Vector2(549.25, 192.75)
-scale = Vector2(1.75104, 3.10937)
-texture = ExtResource("2_racf3")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 151.0
-offset_top = 161.0
-offset_right = 1151.0
-offset_bottom = 328.09
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 50
-text = "You wasted your last shot"
-metadata/_edit_use_anchors_ = true
+[node name="Gameover2" type="Sprite2D" parent="."]
+position = Vector2(587.345, 320.438)
+scale = Vector2(0.32149, 0.32149)
+texture = ExtResource("4_racf3")
 
 [node name="restart" type="Button" parent="."]
-offset_left = 452.0
-offset_top = 309.0
-offset_right = 656.0
-offset_bottom = 401.0
+offset_left = 539.0
+offset_top = 311.0
+offset_right = 927.0
+offset_bottom = 486.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v3hpu")
@@ -43,5 +26,6 @@ text = "restart"
 icon = ExtResource("3_7m3ot")
 flat = true
 icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

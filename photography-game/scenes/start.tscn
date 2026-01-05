@@ -14,28 +14,25 @@ position = Vector2(579.222, 324)
 scale = Vector2(0.601852, 0.601852)
 texture = ExtResource("3_bodal")
 
-[node name="Default" type="Sprite2D" parent="."]
-position = Vector2(283, 485)
-scale = Vector2(1.2398, 1)
-texture = ExtResource("1_u80x2")
-
 [node name="tutorial" type="Button" parent="."]
-offset_left = 183.0
-offset_top = 435.0
-offset_right = 387.0
-offset_bottom = 527.0
+offset_left = 279.0
+offset_top = 430.0
+offset_right = 630.0
+offset_bottom = 623.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bodal")
 text = "tutorial"
+icon = ExtResource("1_u80x2")
 flat = true
 icon_alignment = 1
+expand_icon = true
 
 [node name="start" type="Button" parent="."]
-offset_left = 178.0
-offset_top = 319.0
-offset_right = 382.0
-offset_bottom = 411.0
+offset_left = 270.0
+offset_top = 258.0
+offset_right = 629.0
+offset_bottom = 446.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bodal")
@@ -43,6 +40,7 @@ text = "start"
 icon = ExtResource("1_u80x2")
 flat = true
 icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
