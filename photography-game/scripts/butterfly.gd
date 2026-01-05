@@ -2,7 +2,6 @@ extends Node2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var anisprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var move_timer: Timer = $MoveTimer
-
 var rand_x = position.x
 var rand_y = position.y
 var min_wait_time = 1
@@ -15,7 +14,7 @@ const ACCELERATION = 4
 const type = Global.FrameTypes.BUTTERFLY
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	anisprite.modulate = Color(randi () % 5, randi () % 5, randi () % 5)
+	#anisprite.modulate = Color(randi () % 5, randi () % 5, randi () % 5)
 	rand_x = (randi() % Global.x_viewport_length) - Global.x_viewport_length/2
 	rand_y = (randi() % Global.y_viewport_length) - Global.y_viewport_length/2
 	speed = (randi() % max_speed) + min_speed

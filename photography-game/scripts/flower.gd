@@ -7,10 +7,19 @@ var min_wait_time = 5
 var max_wait_time = 30 - min_wait_time
 var Despawn = false
 var Respawn = false
+const WHITE = preload("res://handdrawn/white.png")
+const PURPLE = preload("res://handdrawn/purple.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#sprite.modulate = Color(randi () % 5, randi () % 5, randi () % 5)
 	timer.wait_time = (randi() % max_wait_time) + min_wait_time
 	timer.start()
+	match randi()%3:
+		0:
+			sprite.texture = WHITE
+		1:
+			sprite.texture = PURPLE
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (Despawn):
