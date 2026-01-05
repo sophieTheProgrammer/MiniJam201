@@ -32,7 +32,7 @@ func shop_text_colors(btn, cost):
 		btn.add_theme_color_override("font_focus_color",Color.ORANGE_RED)
 		btn.add_theme_color_override("font_hover_pressed_color",Color.ORANGE_RED)
 		
-	if Global.moneys < Global.film_cost and Global.film_amount <= 0 and !game_over:
+	if Global.moneys < floor(Global.film_cost) and Global.film_amount <= 0 and !game_over:
 		game_over_timer.start()
 		game_over = true
 
